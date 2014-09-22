@@ -94,7 +94,7 @@ path,
 					.interpolate("cardinal")
 	//Calling line
 	var pats = svg
-			.data(data)
+			.datum(dataset)
 			.append("path")
 			.attr("class","pats")
 			.attr("d",line)
