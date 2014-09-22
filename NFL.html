@@ -94,12 +94,7 @@ path,
 					.interpolate("cardinal")
 
 	//Calling line
-	var pats = svg
-			.data(data)
-			.append("path")
-			.attr("class","pats")
-			.attr("d",line)
-
+	
 	d3.csv("data.csv", function(csv) {
 	//Drawing the line
 	console.log(csv)
