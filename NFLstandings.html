@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Regular Season NFL Standings</title>
+	<script type = "text/javascript" src = "d3/d3.js"></script>
+	<style>
+path.pats { 
+stroke: mediumpurple;
+stroke-width: 4px;
+}
+      
+path.pats:hover {
+stroke-width: 7px;
+stroke: yellow;
+	}
+	
+path,
+	line { 
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+	}
+	text {
+	font-family: perpetua;
+		font-size: 11px;
+		}
+		
+	</style>
+</head>
+<div id ="button">
+<input name="updateButton" 
+                 type="button" 
+                value="Button" 
+                onclick="update()" />
+<div id ="chart"></div>
+<body>
+<script type = "text/javascript">
+//DOM.CLASS
+
+	var w = 500;
+	var h = 500;
+	var padding = 20;
+
+	
+	var dataset = [
+		{x:2, y:20},
+		{x: 4, y:10},
+		{x:6, y:16},
+		{x:8, y: 15},
+		{x:10, y:15},
+		{x: 12, y: 1},
+		{x: 14, y: 10},
+		{x: 16, y:5},
+		{x: 18, y: 10},
+		{x: 20, y: 0},
+		]
+
+	
+	svg = d3.select("#chart")
+			.append("svg")
+			.attr("width",w)
+			.attr("height",h)
+	
+	//Scale dimensions
+	var xScale = d3.scale.linear()
+					.domain([0,20])
+					.range([padding,w+padding])
+	var yScale = d3.scale.linear()
+					.domain([0,20])
+					.range([h-padding,padding])
+				
+	//axis dimensions
+	var xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+	var yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("right")
+	
+	//Drawing the Axis
+				svg.append("g")
+					.attr("class","yaxis")
+					.call(yAxis)
+					
+				svg.append("g")
+					.attr("class","xaxis")
+					.attr("transform","translate(0,"+(h-padding)+")")
+					.call(xAxis)
+	
+	//Drawing the line
+	var line = d3.svg.line()
+					.x(function(d) {return xScale(d.x);})
+					.y(function(d) {return yScale(d.y);})
+					.interpolate("cardinal")
+	//Calling line
+	var pats = svg
+			.datum(dataset)
+			.append("path")
+			.attr("class","pats")
+			.attr("d",line)
+	
+	function update() { 
+		data2 = [{x:0,y:1},
+				{x:20,y:20
+				}]
+			
+		svg.select(".pats")
+			.remove()
+		
+		
+	var line = d3.svg.line()
+					.x(function(d) {return xScale(d.x);})
+					.y(function(d) {return yScale(d.y);})
+					.interpolate("cardinal")
+					
+		svg
+			.datum(data2)
+			.append("path")
+			.attr("class","pats")
+			.attr("d",line)
+			}
+</script>
+</body>
+</html>
