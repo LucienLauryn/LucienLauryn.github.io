@@ -55,7 +55,6 @@ path,
 		{x: 18, y: 10},
 		{x: 20, y: 0},
 		]
-
 	
 	svg = d3.select("#chart")
 			.append("svg")
@@ -95,7 +94,7 @@ path,
 					.interpolate("cardinal")
 	//Calling line
 	var pats = svg
-			.datum(dataset)
+			.data(data)
 			.append("path")
 			.attr("class","pats")
 			.attr("d",line)
@@ -120,6 +119,33 @@ path,
 			.attr("class","pats")
 			.attr("d",line)
 			}
+
+	d3.csv("data.csv",function(csv) {
+  // we first sort the data
+ 
+  csv.sort(function(a,b) {return b.population-a.population;});
+ 
+  // then we create the marks, which we put in an initial position
+ 
+  svg.selectAll("circle").data(csv).enter()
+    .append("circle")
+    .attr("cx",function(d) {return x(0);})
+    .attr("cy",function(d) {return y(0);})
+    .attr("r",function(d) {return r(0);})
+ 
+    .style("fill",function(d) {return c(d.continent);})
+    .style("opacity",function(d) {return o(+d.GDPcap);})
+ 
+      .append("title")
+      .text(function(d) {return d.country;})
+   
+  // now we initiate - moving the marks to their position
+ 
+  svg.selectAll("circle").transition().duration(1000)
+    .attr("cx",function(d) {return x(+d.GERD);})
+    .attr("cy",function(d) {return y(+d.growth);})
+    .attr("r",function(d) {return r(Math.sqrt(+d.population));})
+})
 </script>
 </body>
 </html>
