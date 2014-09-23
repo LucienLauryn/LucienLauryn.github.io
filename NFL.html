@@ -41,7 +41,7 @@ path,
 var dataset
 
 //Vis function
-var generateVis() = function() {
+var generateVis = function() {
 	var w = 500;
 	var h = 500;
 	var padding = 20;
@@ -82,15 +82,15 @@ var generateVis() = function() {
 
 //Loading data and generating vis	
 d3.csv("week1.csv", function(d) {
-		dataset = data;
-		generateVis();
-		
+	dataset = data;
+	generateVis();
+
 	return {
 		team: d.Team,
 		wins: +d.Wins,
 		losses: +d.Losses,
 		ties: +d.Ties};
-	}
+	},
 	function (error, rows) { console.log(rows);
 	})
 
