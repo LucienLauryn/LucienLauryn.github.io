@@ -88,38 +88,15 @@ path,
 					.attr("transform","translate(0,"+(h-padding)+")")
 					.call(xAxis)
 	
-		var line = d3.svg.line()
-					.x(function(d) {return xScale(d.x);})
-					.y(function(d) {return yScale(d.y);})
-					.interpolate("cardinal")
 
 	//Calling line
 	
 	d3.csv("data.csv", function(csv) {
-	//Drawing the line
-	 csv.sort(function(a,b) {return b.population-a.population;});
- 
-  // then we create the marks, which we put in an initial position
- 
-  svg.selectAll("circle").data(csv).enter()
-    .append("circle")
-    .attr("cx",function(d) {return xScale(0);})
-    .attr("cy",function(d) {return yScale(0);})
-    .attr("r",function(d) {return 5;})
- 
-    .style("fill",function(d) {return c(d.continent);})
-    .style("opacity",function(d) {return o(+d.GDPcap);})
- 
-      .append("title")
-      .text(function(d) {return d.country;})
-   
-  // now we initiate - moving the marks to their position
- 
-  svg.selectAll("circle").transition().duration(1000)
-    .attr("cx",function(d) {return x(+d.GERD);})
-    .attr("cy",function(d) {return y(+d.growth);})
-    .attr("r",function(d) {return r(Math.sqrt(+d.population));})
-
+	return {
+		team: csv.Team,
+		wins: csv.Wins,
+		losses: csv.losses
+		Ties: csv.Ties	}
 	})
 
 </script>
