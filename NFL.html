@@ -92,12 +92,12 @@ path,
 	//Calling line
 	//
 	
-	d3.csv("week1.csv", function(csv) {
+	d3.csv("week1.csv", function(d) {
 	return {
-		team: csv.Team,
-		wins: csv.Wins,
-		losses: csv.losses,
-		Ties: csv.Ties};
+		team: d.Team,
+		wins: +d.Wins,
+		losses: +d.Losses,
+		Ties: +d.Ties};
 	},
 	function (error, rows) { console.log(rows);
 	})
