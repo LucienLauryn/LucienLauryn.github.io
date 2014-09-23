@@ -36,26 +36,16 @@ path,
 <div id ="chart"></div>
 <body>
 <script type = "text/javascript">
-//DOM.CLASS
 
+//Global variables
+var dataset
+
+//Vis function
+var generateVis() = function() {
 	var w = 500;
 	var h = 500;
 	var padding = 20;
 
-	
-	var dataset = [
-		{x:2, y:20},
-		{x: 4, y:10},
-		{x:6, y:16},
-		{x:8, y: 15},
-		{x:10, y:15},
-		{x: 12, y: 1},
-		{x: 14, y: 10},
-		{x: 16, y:5},
-		{x: 18, y: 10},
-		{x: 20, y: 0},
-		]
-	
 	svg = d3.select("#chart")
 			.append("svg")
 			.attr("width",w)
@@ -65,7 +55,7 @@ path,
 	//Scale dimensions
 	var xScale = d3.scale.linear()
 					.domain([0,20])
-					.range([padding,w+padding])
+					.range([0,w+padding])
 	var yScale = d3.scale.linear()
 					.domain([0,20])
 					.range([h-padding,padding])
@@ -76,29 +66,31 @@ path,
 					.orient("bottom")
 	var yAxis = d3.svg.axis()
 					.scale(yScale)
-					.orient("right")
+					.orient("left")
 	
 	//Drawing the Axis
 				svg.append("g")
 					.attr("class","yaxis")
+					.attr("transform","translate("+ padding +",0)")
 					.call(yAxis)
 					
 				svg.append("g")
 					.attr("class","xaxis")
-					.attr("transform","translate(0,"+(h-padding)+")")
+					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis)
-	
+	}
 
-	//Calling line
-	//
-	
-	d3.csv("week1.csv", function(d) {
+//Loading data and generating vis	
+d3.csv("week1.csv", function(d) {
+		dataset = data;
+		generateVis();
+		
 	return {
 		team: d.Team,
 		wins: +d.Wins,
 		losses: +d.Losses,
-		Ties: +d.Ties};
-	},
+		ties: +d.Ties};
+	}
 	function (error, rows) { console.log(rows);
 	})
 
