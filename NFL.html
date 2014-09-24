@@ -30,9 +30,10 @@ path,
 </head>
 <div id ="button">
 <input name="updateButton" 
-                 type="button" 
+                type="button" 
                 value="Button" 
                 onclick="update()" />
+
 <div id ="chart"></div>
 <body>
 <script type = "text/javascript">
@@ -40,9 +41,10 @@ path,
 //Global variables
 var dataset
 
+
 //Vis function
 var generateVis = function() {
-	var w = 500;
+	var w = 550;
 	var h = 500;
 	var padding = 20;
 
@@ -50,6 +52,15 @@ var generateVis = function() {
 			.append("svg")
 			.attr("width",w)
 			.attr("height",h)
+
+	var weeks = 16;
+	var wins = 16;
+	var list = []
+
+	var seq = function(x) {
+		for (i = 0; i <= x; i++) { list.push(i); }
+		return list
+		}
 
 	var dataset = [
 		{x:2, y:20},
@@ -66,19 +77,22 @@ var generateVis = function() {
 
 	//Scale dimensions
 	var xScale = d3.scale.linear()
-					.domain([0,20])
-					.range([0,w+padding])
+					.domain([0,weeks])
+					.range([0,w-padding*1.5])
 	var yScale = d3.scale.linear()
-					.domain([0,20])
+					.domain([0,wins])
 					.range([h-padding,padding])
-	
+
 	//axis dimensions
 	var xAxis = d3.svg.axis()
 					.scale(xScale)
 					.orient("bottom")
+					.ticks(weeks)
+
 	var yAxis = d3.svg.axis()
 					.scale(yScale)
 					.orient("left")
+					.ticks(wins)
 	
 	//Drawing the Axis
 				svg.append("g")
@@ -90,11 +104,32 @@ var generateVis = function() {
 					.attr("class","xaxis")
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis)
+
+
+	//Drawing the line
+	var line = d3.svg.line()
+					.x(function(d) {return xScale(d.x);})
+					.y(function(d) {return yScale(d.y);})
+					.interpolate("cardinal")
+	//Calling line
+	var pats = svg
+			.data(d)
+			.enter()
+			.append("path")
+			.attr("class","pats")
+			.attr("d",line)
 	}
 
+
+
 //Loading data and generating vis	
-d3.csv("week1.csv", function(data) {
-	dataset = data;
+d3.csv("compiled.csv", function(d) {
+
+  var data=d3.nest()
+  .key(function(d) {return d.conference;})
+  .sortKeys(d3.ascending)
+  .entries(d);
+	dataset = d;
 	generateVis();
 
 	return {

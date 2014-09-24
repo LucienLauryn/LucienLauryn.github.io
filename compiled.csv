@@ -1,0 +1,33 @@
+"conference","division","team","week1","week2","week3"
+"NFC","West","Arizona",1,2,3
+"NFC","South","Atlanta",1,1,2
+"AFC","North","Baltimore",0,1,2
+"AFC","East","Buffalo",1,2,2
+"NFC","South","Carolina",1,2,2
+"NFC","North","Chicago",0,1,2
+"AFC","North","Cincinnati",1,2,3
+"AFC","North","Cleveland",0,1,1
+"NFC","East","Dallas",0,1,2
+"AFC","West","Denver",1,2,2
+"NFC","North","Detroit",1,1,2
+"NFC","North","Green Bay",0,1,1
+"AFC","South","Houston",1,2,2
+"AFC","South","Indianapolis",0,0,1
+"AFC","South","Jacksonville",0,0,0
+"AFC","West","Kansas City",0,0,1
+"AFC","East","Miami",1,1,1
+"NFC","North","Minnesota",1,1,1
+"AFC","East","New England",0,1,2
+"NFC","South","New Orleans",0,0,1
+"NFC","East","NY Giants",0,0,1
+"AFC","East","NY Jets",1,1,1
+"AFC","West","Oakland",0,0,0
+"NFC","East","Philadelphia",1,2,3
+"AFC","North","Pittsburgh",1,1,2
+"AFC","West","San Diego",0,1,2
+"NFC","West","San Francisco",1,1,1
+"NFC","West","Seattle",1,1,2
+"NFC","West","St. Louis",0,1,1
+"NFC","South","Tampa Bay",0,0,0
+"AFC","South","Tennessee",1,1,1
+"NFC","East","Washington",0,1,1
