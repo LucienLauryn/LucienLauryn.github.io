@@ -115,12 +115,26 @@ var generateVis = function() {
 
 	//Team names?
 			g.append("text")
-			 .attr("x",padding)
-			 .attr("y",padding)
+			 .attr("x", padding)
+			 .attr("y", function(d,i) { return yScale(i)})
 			 .text(function(d) { return d.key;})
+
+	//Team names
+			g.append("text")
+			 .attr("x", padding)
+			 .attr("y", function(d,i) { return yScale(i)})
+			 .text(function(d) { return d.division;})
 
 		console.log("hello")
   		console.log(dataset)
+
+  	//Team names
+			g.select("text")
+			 .data(function(d) { return d.values;})
+			 .enter()
+			 .attr("x", padding*2)
+			 .attr("y", function(d,i) { return yScale(i)})
+			 .text(function(d) { return d.north;})
 	}
 
 
