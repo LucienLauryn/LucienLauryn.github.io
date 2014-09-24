@@ -115,26 +115,52 @@ var generateVis = function() {
 
 	//Team names?
 			g.append("text")
-			 .attr("x", padding)
+			 .attr("x", function(d,i) { return xScale(i)})
 			 .attr("y", function(d,i) { return yScale(i)})
 			 .text(function(d) { return d.key;})
 
 	//Team names
 			g.append("text")
-			 .attr("x", padding)
+			 .attr("x", function(d,i) { return xScale(i)/2})
 			 .attr("y", function(d,i) { return yScale(i)})
 			 .text(function(d) { return d.division;})
 
-		console.log("hello2")
+		console.log("hello3")
   		console.log(dataset)
 
   	//Team names
 			g.select("text")
+			 .data(function(d) { return d.key;})
+			 .enter()
+			 .attr("x", padding*2)
+			 .attr("y", function(d,i) { return yScale(i)})
+			 .text(function(d) { return d.North;})
+
+			g.select("text")
+			 .data(function(d) { return d.key;})
+			 .enter()
+			 .data(function(d) { return d.key;})
+			 .enter()
+			 .attr("x", padding*2)
+			 .attr("y", function(d,i) { return yScale(i)})
+			 .text(function(d) { return d.North;})
+
+			 g.select("text")
+			 .data(function(d) { return d.key;})
+			 .enter()
 			 .data(function(d) { return d.values;})
 			 .enter()
 			 .attr("x", padding*2)
 			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.north;})
+			 .text(function(d) { return d.North;})
+
+			  g.select("text")
+			 .data(function(d) { return d.key;})
+			 .data(function(d) { return d.values;})
+			 .enter()
+			 .attr("x", padding*2)
+			 .attr("y", function(d,i) { return yScale(i)})
+			 .text(function(d) { return d.North;})
 	}
 
 
