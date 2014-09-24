@@ -105,6 +105,18 @@ var generateVis = function() {
 			.append("path")
 			.attr("class","pats")
 			.attr("d",line)
+
+	//g group var
+	var g = svg.selectAll("g")
+				.data(dataset)
+				.enter()
+				.append("g")
+
+	//Team names?
+			g.append("text")
+			 .attr("x",padding)
+			 .attr("y",padding)
+			 .text(function(d) { return d.key;})
 	}
 
 
@@ -114,16 +126,14 @@ d3.csv("compiled.csv", function(d) {
   
   dataset=d3.nest()
   .key(function(d) {return d.conference;})
-  .sortKeys(d3.ascending)
+  .key(function(d) {return d.division;})
+  .rollup(function(leaves) { return leaves.length; })
   .entries(d);
+
   console.log(dataset)
+
 	generateVis();
 
-	return {
-		team: d.Team,
-		wins: +d.Wins,
-		losses: +d.Losses,
-		ties: +d.Ties};
 	})
 
 </script>
