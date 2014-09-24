@@ -125,11 +125,11 @@ var generateVis = function() {
 //Loading data and generating vis	
 d3.csv("compiled.csv", function(d) {
 
-  var data=d3.nest()
+  dataset=d3.nest()
   .key(function(d) {return d.conference;})
   .sortKeys(d3.ascending)
   .entries(d);
-	dataset = data;
+
 	generateVis();
 
 	return {
