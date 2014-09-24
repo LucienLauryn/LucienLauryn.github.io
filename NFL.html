@@ -111,7 +111,7 @@ var generateVis = function() {
 				.data(dataset)
 				.enter()
 				.append("g")
-				.attr("transform","translate(" + w/2 + "," + h/2 + ")")
+				.attr("transform","translate(" + 0+ "," + 0 + ")")
 
 	//Team names?
 			g.append("text")
@@ -129,38 +129,7 @@ var generateVis = function() {
   		console.log(dataset)
 
   	//Team names
-			g.select("text")
-			 .data(function(d) { return d.key;})
-			 .enter()
-			 .attr("x", padding*2)
-			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.North;})
-
-			g.select("text")
-			 .data(function(d) { return d.key;})
-			 .enter()
-			 .data(function(d) { return d.key;})
-			 .enter()
-			 .attr("x", padding*2)
-			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.North;})
-
-			 g.select("text")
-			 .data(function(d) { return d.key;})
-			 .enter()
-			 .data(function(d) { return d.values;})
-			 .enter()
-			 .attr("x", padding*2)
-			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.North;})
-
-			  g.select("text")
-			 .data(function(d) { return d.key;})
-			 .data(function(d) { return d.values;})
-			 .enter()
-			 .attr("x", padding*2)
-			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.North;})
+		
 	}
 
 
@@ -170,7 +139,7 @@ d3.csv("compiled.csv", function(d) {
   
   dataset=d3.nest()
   .key(function(d) {return d.conference;})
-  .key(function(d) {return d.division;})
+  //.key(function(d) {return d.division;})
   .rollup(function(leaves) { return leaves.length; })
   .entries(d);
 
