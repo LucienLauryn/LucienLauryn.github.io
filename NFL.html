@@ -62,19 +62,6 @@ var generateVis = function() {
 		return list
 		}
 
-	var dataset = [
-		{x:2, y:20},
-		{x: 4, y:10},
-		{x:6, y:16},
-		{x:8, y: 15},
-		{x:10, y:15},
-		{x: 12, y: 1},
-		{x: 14, y: 10},
-		{x: 16, y:5},
-		{x: 18, y: 10},
-		{x: 20, y: 0},
-		]
-
 	//Scale dimensions
 	var xScale = d3.scale.linear()
 					.domain([0,weeks])
@@ -113,7 +100,7 @@ var generateVis = function() {
 					.interpolate("cardinal")
 	//Calling line
 	var pats = svg
-			.data(d)
+			.data(dataset)
 			.enter()
 			.append("path")
 			.attr("class","pats")
