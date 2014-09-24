@@ -129,7 +129,7 @@ d3.csv("compiled.csv", function(d) {
   .key(function(d) {return d.conference;})
   .sortKeys(d3.ascending)
   .entries(d);
-	dataset = d;
+	dataset = data;
 	generateVis();
 
 	return {
