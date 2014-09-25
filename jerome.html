@@ -58,7 +58,7 @@ d3.csv("data.csv",function(csv) {
       .attr("r",1)
       // throwing in a title element
       .append("title")
-        .text(function(d) {console.log(d) return d.country;});
+        .text(function(d) { return d.country;});
 
   // finally, we animate our marks in position
   g.selectAll("circle").transition().duration(1000)
