@@ -53,8 +53,7 @@ var generateVis = function() {
 		return list
 		}
 
-	svg = d3.select("body")
-			.select("#chart")
+	sv2g = d3.select("#chart")
 			.append("svg")
 			.attr("width",w)
 			.attr("height",h)
@@ -74,12 +73,12 @@ var generateVis = function() {
 					.ticks(weeks);
 
 	var yAxis = d3.svg.axis()
-					.scale(yScale)
+					.scale(	yScale)
 					.orient("left")
 					.ticks(wins);
 	
 	//g group var
-	var g = svg.select("svg")
+	var g = sv2g.select("svg")
 				.data(dataset)
 				.enter()
 				.append("g");
