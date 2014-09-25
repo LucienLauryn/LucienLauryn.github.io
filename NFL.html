@@ -92,7 +92,7 @@ var generateVis = function() {
 
 	//g group var
 // One cell for each continent
-var g=svg.selectAll("g").data(data).enter()
+var g=svg.selectAll("g").data(dataset).enter()
   .append("g")
   .attr("transform",function(d,i) {return "translate("+(100*i)+",0)";});
 // we add a rect element with a title element
@@ -118,7 +118,7 @@ g
 			 .attr("y", function(d,i) { return yScale(i)})
 			 .text(function(d) { return d.division;})*/
 
-		console.log("hello4")
+		console.log("hello5")
   		console.log(dataset)
 
   	//Team names
