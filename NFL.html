@@ -92,16 +92,17 @@ var generateVis = function() {
 
 	var data = [1,2,3,4,5,6]
 
+
+var g=svg.selectAll("g").data(data).enter()
+  .append("g")
+  .attr("transform",function(d,i) {return "translate("+(100*i)+",0)";});
 	//Team names
-			svg.selectAll("g")
-			 .data(data)
-			 .enter()
-			 .append("g")
+			g
 			 .attr("x",w/2)
 			 .attr("y", h/2)
 			 .text(function(d) { return d;})
 
-		console.log("hello7")
+		console.log("hello8")
   		console.log(dataset)
 
   	//Team names
