@@ -145,7 +145,8 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("y",function(d,i) {return (d[i].values.length);})
 			 .text(function(d,i) { 
 			 	console.log(d)
-			 	return dataset[i].values.team;});
+
+			 	return dataset[i].values[1].team;});
 
 	})
 
