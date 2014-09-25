@@ -52,7 +52,7 @@ path,
 			.attr("width",w)
 			.attr("height",h);
 
-/*
+
 	//Scale dimensions
 	var xScale = d3.scale.linear()
 					.domain([0,weeks])
@@ -96,7 +96,7 @@ path,
 					.attr("x1", 0).attr("x2", teamcol)
 					.attr("y1",t).attr("y2", t)
 					.attr("transform","translate(0,"+margin+")")
-*/
+
 			/*	svg.selectAll(".v")
 					.data(d3.range(0,16))
 					.enter()
@@ -144,11 +144,11 @@ d3.csv("compiled.csv", function(da) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return (h/2);})
+			 .attr("y", yScale)
 			 .text(function(d,i) { 
 
 			 	console.log(d.conference)
-			 	console.log(d.team)
+			 	console.log(d.teams)
 			 	console.log(d.wins)
 
 			 	return d.team;});
