@@ -78,7 +78,7 @@ console.log("hello1")
 			.data(dataset)
 			.enter()
 			.append("text")
-			 .attr("x",w/2)
+			 .attr("x",i*(w/dataset.length))
 			 .attr("y", h/2)
 			 .text(function(d) { return d.key;})
 
@@ -87,6 +87,39 @@ console.log("hello1")
  
 
 	})
+
+
+	//Scale dimensions
+	var xScale = d3.scale.linear()
+					.domain([0,weeks])
+					.range([0,w-padding*1.5]);
+	var yScale = d3.scale.linear()
+					.domain([0,wins])
+					.range([h-padding,padding]);
+
+	//axis dimensions
+	var xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+					.ticks(weeks);
+
+	var yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("left")
+					.ticks(wins);
+	
+
+	//Drawing the Axis
+				svg.append("g")
+					.attr("class","yaxis")
+					.attr("transform","translate("+ padding +",0)")
+					.call(yAxis);
+					
+				svg.append("g")
+					.attr("class","xaxis")
+					.attr("transform","translate("+ padding +","+(h-padding)+")")
+					.call(xAxis);
+
 </script>
 </body>
 </html>
