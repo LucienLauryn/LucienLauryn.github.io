@@ -94,29 +94,24 @@ d3.csv("compiled.csv", function(d) {
   .entries(d);
 
 
-var g=svg.selectAll("g").data(dataset).enter()
-  .append("g")
-  .attr("transform",function(d,i) {return "translate("+(100*i)+"," + padding +")";});
-	//Team names
-
-			g.append("rect")
+			svg.append("rect")
 			 .attr("x", 100)
 			 .attr("y",100)
 			 .attr("width",20)
 			 .attr("height",40)
 			 .attr("fill","purple")
 
-			g.append("text")
+			svg.append("text")
 			 .attr("x",w/2)
 			 .attr("y", h/2)
 			 .text(function(d) { return d.key;})
 
-			g.append("text")
+			svg.append("text")
 			 .attr("x",w/2)
 			 .attr("y", h/2)
 			 .text(function(d) { return d.conference;})
 
-		console.log("hello10")
+		console.log("hello1")
   		console.log(dataset)
 
  
