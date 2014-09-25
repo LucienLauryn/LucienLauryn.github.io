@@ -77,26 +77,27 @@ var generateVis = function() {
 					.scale(yScale)
 					.orient("left")
 					.ticks(wins);
-	//g group var
-	var g = svg.data(dataset)
-				.enter()
-				.append("g");
+	
 
 	//Drawing the Axis
-				g
+				svg.append("g")
 					.attr("class","yaxis")
 					.attr("transform","translate("+ padding +",0)")
 					.call(yAxis);
 					
-				g
+				svg.append("g")
 					.attr("class","xaxis")
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis)
 
-	
+	//g group var
+
 
 	//Team names?
-			g.append("text")
+			svg.selectAll("text")
+			.data(dataset)
+			.enter()
+			.append("text")
 			 .attr("x", function(d,i) { return w/xScale(i)})
 			 .attr("y", function(d,i) { return h-yScale(i)})
 			 .text(function(d) { return d.key;})
