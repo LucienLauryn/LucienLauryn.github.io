@@ -28,12 +28,6 @@ path,
 		
 	</style>
 </head>
-<div id ="button">
-<input name="updateButton" 
-                type="button" 
-                value="Button" 
-                onclick="update()" />
-
 
 <body>
 <div id ="chart"></div>
@@ -93,22 +87,8 @@ var generateVis = function() {
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis)
 
-
-	//Drawing the line
-	var line = d3.svg.line()
-					.x(function(d) {return xScale(d.x);})
-					.y(function(d) {return yScale(d.y);})
-					.interpolate("cardinal")
-	//Calling line
-	var pats = svg.selectAll("g")
-			.data(dataset)
-			.enter()
-			.append("path")
-			.attr("class","pats")
-			.attr("d",line)
-
 	//g group var
-	var g = svg
+	var g = svg.selectAll("g")
 				.data(dataset)
 				.enter()
 				.append("g")
