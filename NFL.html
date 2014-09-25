@@ -148,7 +148,7 @@ d3.csv("compiled.csv", function(d) {
 			 	console.log(dataset[i])
 			 	console.log("dataset[i].values:" + dataset[i].values)
 			 	console.log("dataset[i].values[i].team:" + dataset[i].values[0:15].team)
-			 	return dataset[i].values[0:15].team;});
+			 	return dataset[i].values.team;});
 
 	})
 
