@@ -96,11 +96,11 @@ var generateVis = function() {
 			 .data(dataset)
 			 .enter()
 			 .append("text")
-			 .attr("x", function(d,i) { return xScale(i)/2})
-			 .attr("y", function(d,i) { return yScale(i)})
+			 .attr("x",w/2)
+			 .attr("y", h/2)
 			 .text(function(d) { return d.key;})
 
-		console.log("hello6")
+		console.log("hello7")
   		console.log(dataset)
 
   	//Team names
