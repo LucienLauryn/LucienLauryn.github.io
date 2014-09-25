@@ -111,11 +111,10 @@ var generateVis = function() {
 				.data(dataset)
 				.enter()
 				.append("g")
-				.attr("transform","translate(" + w/2+ "," + 0 + ")")
 
 	//Team names?
 			g.append("text")
-			 .attr("x", function(d,i) { return xScale(i)})
+			 .attr("x", function(d,i) { return w/xScale(i)})
 			 .attr("y", function(d,i) { return yScale(i)})
 			 .text(function(d) { return d.key;})
 
