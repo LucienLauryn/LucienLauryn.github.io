@@ -144,11 +144,8 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("x", margin)
 			 .attr("y", h/2)
 			 .text(function(d,i) { 
-			 	console.log(d.values)
-
-			 	console.log(d.conference)
-
-			 	console.log(d.team)
+			 	console.log(d.division)
+			 	console.log(d.values.team)
 			 	return d.team;});
 
 	})
