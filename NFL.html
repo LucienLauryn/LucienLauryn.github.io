@@ -91,16 +91,26 @@ var generateVis = function() {
 					.call(xAxis);
 
 	//g group var
-
-
-	//Team names?
-			svg.selectAll("text")
-			.data(dataset)
-			.enter()
-			.append("text")
-			 .attr("x", function(d,i) { return w/xScale(i)})
-			 .attr("y", function(d,i) { return h-yScale(i)})
-			 .text(function(d) { return d.key;})
+// One cell for each continent
+var g=svg.selectAll("g").data(data).enter()
+  .append("g")
+  .attr("transform",function(d,i) {return "translate("+(100*i)+",0)";});
+// we add a rect element with a title element
+// so that mousing over the cell will tell us which continent it is
+g
+  .append("rect")
+  .attr("x",padding)
+  .attr("y",padding)
+  .attr("width",padding-2*padding)
+  .attr("height",padding-2*padding)
+    .append("title")
+    .text(function(d) {return d.key;})
+// we also write its name below.
+g
+  .append("text")
+  .attr("y",padding+10)
+  .attr("x",padding)
+  .text(function(d) {return d.key;})
 
 	//Team names
 	/*		g.append("text")
@@ -123,7 +133,7 @@ d3.csv("compiled.csv", function(d) {
   dataset=d3.nest()
   .key(function(d) {return d.conference;})
   //.key(function(d) {return d.division;})
-  .rollup(function(leaves) { return leaves.length; })
+  /*.rollup(function(leaves) { return leaves.length; })*/
   .entries(d);
 
 
