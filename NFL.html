@@ -136,9 +136,9 @@ d3.csv("compiled.csv", function(d) {
 			 .text(function(d) { return d.key;});
 
 			g.append("g")
+			.selectAll("text")
 			.data(dataset)
 			.enter()
-			.selectAll("text")
 			.data(function(q) { return q.values})
 			.enter()
 			.append("text")
