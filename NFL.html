@@ -70,29 +70,31 @@ var generateVis = function() {
 	var xAxis = d3.svg.axis()
 					.scale(xScale)
 					.orient("bottom")
-					.ticks(weeks)
+					.ticks(weeks);
 
 	var yAxis = d3.svg.axis()
 					.scale(yScale)
 					.orient("left")
-					.ticks(wins)
+					.ticks(wins);
 	
-	//Drawing the Axis
-				svg.append("g")
-					.attr("class","yaxis")
-					.attr("transform","translate("+ padding +",0)")
-					.call(yAxis)
-					
-				svg.append("g")
-					.attr("class","xaxis")
-					.attr("transform","translate("+ padding +","+(h-padding)+")")
-					.call(xAxis)
-
 	//g group var
-	var g = svg.selectAll("g")
+	var g = svg.select("svg")
 				.data(dataset)
 				.enter()
-				.append("g")
+				.append("g");
+
+	//Drawing the Axis
+				g
+				.attr("class","yaxis")
+				.attr("transform","translate("+ padding +",0)")
+				.call(yAxis);
+				
+				g
+				.attr("class","xaxis")
+				.attr("transform","translate("+ padding +","+(h-padding)+")")
+				.call(xAxis)
+
+	
 
 	//Team names?
 			g.append("text")
