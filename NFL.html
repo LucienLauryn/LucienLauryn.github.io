@@ -52,7 +52,7 @@ path,
 			.attr("width",w)
 			.attr("height",h);
 
-
+/*
 	//Scale dimensions
 	var xScale = d3.scale.linear()
 					.domain([0,weeks])
@@ -95,7 +95,7 @@ path,
 					.attr("class","h")
 					.attr("x1", 0).attr("x2", teamcol)
 					.attr("y1",t).attr("y2", t)
-					.attr("transform","translate(0,"+margin+")")
+					.attr("transform","translate(0,"+margin+")")*/
 
 			/*	svg.selectAll(".v")
 					.data(d3.range(0,16))
@@ -107,13 +107,14 @@ path,
 
 
 //Loading data and generating vis	
-d3.csv("compiled.csv", function(d) {
+d3.csv("compiled.csv", function(da) {
   
   var dataset=d3.nest()
   .key(function(d) {return d.conference;})
   //.key(function(d) {return d.division;})
   /*.rollup(function(leaves) { return leaves.length; })*/
-  .entries(d);
+  .entries(da);
+
 
 			svg.append("rect")
 			 .attr("x", Math.random()*500)
@@ -123,9 +124,11 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("fill","purple");
 
   			console.log(dataset)
-  			var g = svg.append("g")
-			
-			g
+
+  			var g=svg.selectAll("g").data(dataset).enter()
+    .append("g")
+
+		/*	g
 			.selectAll("text")
 			.data(dataset)
 			.enter()
@@ -133,13 +136,10 @@ d3.csv("compiled.csv", function(d) {
 			.attr("class","conference")
 			 .attr("x",function(d,i) {return margin;})
 			 .attr("y",function(d,i) {return h-yScale(i)*50;})
-			 .text(function(d) { return d.key;});
+			 .text(function(d) { return d.key;});*/
 
-			g.append("g")
-			.selectAll("text")
-			.data(dataset)
-			.enter()
-			.data(function(d) { return d})
+			g.selectAll("text")
+			.data(function(d) { return d.values })
 			.enter()
 			.append("text")
 			.attr("class","team")

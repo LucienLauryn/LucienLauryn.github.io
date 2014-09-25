@@ -49,7 +49,7 @@ d3.csv("data.csv",function(csv) {
   // now marks, initiated to default values
   g.selectAll("circle")
   // we are getting the values of the countries like this:
-  .data(function(d) {console.log(d)
+  .data(function(d) {
     return d.values}) 
   .enter()
       .append("circle")
