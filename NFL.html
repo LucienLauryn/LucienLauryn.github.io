@@ -90,33 +90,15 @@ var generateVis = function() {
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis);
 
-	//g group var
-// One cell for each continent
-var g=svg.selectAll("g").data(dataset).enter()
-  .append("g")
-  .attr("transform",function(d,i) {return "translate("+(100*i)+",0)";});
-// we add a rect element with a title element
-// so that mousing over the cell will tell us which continent it is
-g
-  .append("rect")
-  .attr("x",padding)
-  .attr("y",padding)
-  .attr("width",padding-2*padding)
-  .attr("height",padding-2*padding)
-    .append("title")
-    .text(function(d) {return d.key;})
-// we also write its name below.
-g
-  .append("text")
-  .attr("y",padding+10)
-  .attr("x",padding)
-  .text(function(d) {return d.key;})
 
 	//Team names
-	/*		g.append("text")
+			svg.selectAll("text")
+			 .data(dataset)
+			 .enter()
+			 .append("text")
 			 .attr("x", function(d,i) { return xScale(i)/2})
 			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.division;})*/
+			 .text(function(d) { return d.conference;})
 
 		console.log("hello5")
   		console.log(dataset)
