@@ -125,8 +125,8 @@ d3.csv("compiled.csv", function(da) {
 
   			console.log(dataset)
 
-  			var g=svg.selectAll("p").data(dataset).enter()
-    .append("p")
+  			var g=svg.selectAll("g").data(dataset).enter()
+    .append("g")
 
 		/*	g
 			.selectAll("text")
