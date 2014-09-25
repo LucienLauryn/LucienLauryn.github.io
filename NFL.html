@@ -146,10 +146,9 @@ d3.csv("compiled.csv", function(d) {
 			 .text(function(d,i) { 
 			 	console.log(dataset.length)
 			 	console.log(dataset[i])
-			 	console.log("dataset[i].values:" +dataset[i].values)
-			 	console.log("dataset[i].values[i].team:" + dataset[i].values[i].team)
-			 	return dataset[i].values[1].team;});
- 
+			 	console.log("dataset[i].values:" + dataset[i].values)
+			 	console.log("dataset[i].values[i].team:" + dataset[i].values[0:15].team)
+			 	return dataset[i].values[0:15].team;});
 
 	})
 
