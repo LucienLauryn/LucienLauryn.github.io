@@ -42,7 +42,6 @@ path,
 	var weeks = 16;
 	var wins = 16;
 	var teams = 32;
-
 	var seq = function(x) {
 		for (i = 0; i <= x; i++) { list.push(i); }
 		return list
@@ -62,6 +61,9 @@ path,
 					.domain([0,wins])
 					.range([h-margin,margin]);
 
+	var t = d3.scale.linear()
+					.domain([0,teams])
+					.range([0, h]);
 	//axis dimensions
 	var xAxis = d3.svg.axis()
 					.scale(xScale)
