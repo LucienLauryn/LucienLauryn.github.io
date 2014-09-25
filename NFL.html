@@ -152,7 +152,7 @@ d3.csv("compiled.csv", function(d) {
 			 	for (j =  0; j < dataset[i].values.length; j++) {
 
 			 	console.log("dataset[i].values[j].team:" + dataset[i].values[j].team)
-			 		dataset[i].values[j].team
+			 		d.push(dataset[i].values[j].team)
 			 	}
 			 	return d;});
 
