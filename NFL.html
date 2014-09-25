@@ -124,21 +124,11 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
   			var g = svg.append("g")
+			.data(dataset)
+			.enter()
 			
-			g
-			.selectAll("text")
-			.data(dataset)
-			.enter()
-			.append("text")
-			.attr("class","conference")
-			 .attr("x",function(d,i) {return margin;})
-			 .attr("y",function(d,i) {return h-yScale(i)*50;})
-			 .text(function(d) { return d.key;});
-
-			g.append("g")
-			.selectAll("text")
-			.data(dataset)
-			.enter()
+	
+			g.selectAll("text")
 			.data(function(d) { return d.values})
 			.enter()
 			.append("text")
@@ -150,6 +140,15 @@ d3.csv("compiled.csv", function(d) {
 			 	console.log(d.values.team)
 			 	return d.team;});
 
+			g
+			.selectAll("text")
+			.data(function(d) { return d.values})
+			.enter()
+			.append("text")
+			.attr("class","conference")
+			 .attr("x",function(d,i) {return margin;})
+			 .attr("y",function(d,i) {return h-yScale(i)*50;})
+			 .text(function(d) { return d.key;});
 	})
 
 
