@@ -135,7 +135,7 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("y",function(d,i) {return h-yScale(i);})
 			 .text(function(d) { return d.key;});
 
-			g.append("title")
+			g.append("g")
 			.selectAll("text")
 			.data(dataset)
 			.enter()
@@ -148,7 +148,7 @@ d3.csv("compiled.csv", function(d) {
 			 	console.log(dataset[i])
 			 	console.log(dataset[i].values)
 			 	console.log(dataset[i].values[i].team)
-			 	return dataset[i].values[15].team;});
+			 	return dataset[i].values[i].team;});
  
 
 	})
