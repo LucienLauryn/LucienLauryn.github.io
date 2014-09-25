@@ -34,16 +34,9 @@ path,
 <div id ="chart"></div>
 <script type = "text/javascript">
 
-//Global variables
-var dataset
-
-
-//Vis function
-var generateVis = function() {
 	var w = 600;
 	var h = 550;
 	var padding = 20;
-
 
 	var weeks = 16;
 	var wins = 16;
@@ -59,42 +52,68 @@ var generateVis = function() {
 			.attr("width",w)
 			.attr("height",h);
 
+	//Scale dimensions
+	var xScale = d3.scale.linear()
+					.domain([0,weeks])
+					.range([0,w-padding*1.5]);
+	var yScale = d3.scale.linear()
+					.domain([0,wins])
+					.range([h-padding,padding]);
 
-	var data = [1,2,3,4,5,6]
+	//axis dimensions
+	var xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+					.ticks(weeks);
 
+	var yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("left")
+					.ticks(wins);
+	
 
-var g=svg.selectAll("g").data(data).enter()
-  .append("g")
-  .attr("transform",function(d,i) {return "translate("+(100*i)+"," + padding +")";});
-	//Team names
-			g
-			 .attr("x",w/2)
-			 .attr("y", h/2)
-			 .text(function(d) { return d;})
-
-		console.log("hello8")
-  		console.log(dataset)
-
-  	//Team names
-		
-	}
-
+	//Drawing the Axis
+				svg.append("g")
+					.attr("class","yaxis")
+					.attr("transform","translate("+ padding +",0)")
+					.call(yAxis);
+					
+				svg.append("g")
+					.attr("class","xaxis")
+					.attr("transform","translate("+ padding +","+(h-padding)+")")
+					.call(xAxis);
 
 
 //Loading data and generating vis	
 d3.csv("compiled.csv", function(d) {
   
-  dataset=d3.nest()
+  var dataset=d3.nest()
   .key(function(d) {return d.conference;})
   //.key(function(d) {return d.division;})
   /*.rollup(function(leaves) { return leaves.length; })*/
   .entries(d);
 
 
-	generateVis();
+var g=svg.selectAll("g").data(dataset).enter()
+  .append("g")
+  .attr("transform",function(d,i) {return "translate("+(100*i)+"," + padding +")";});
+	//Team names
+
+			g
+			 .attr("x",w/2)
+			 .attr("y", h/2)
+			 .text(function(d) { return d;})
+			 .attr("fill","blue")
+
+		console.log("hello8")
+  		console.log(dataset)
+
+ 
+
+
+
 
 	})
-
 </script>
 </body>
 </html>
