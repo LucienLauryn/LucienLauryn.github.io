@@ -78,7 +78,7 @@ console.log("hello1")
 			.data(dataset)
 			.enter()
 			.append("text")
-			 .attr("x",function(d,i) {return i*(w/dataset.length;}))
+			 .attr("x",function(d,i) {return i*(w/dataset.length);}))
 			 .attr("y", h/2)
 			 .text(function(d) { return d.key;})
 
