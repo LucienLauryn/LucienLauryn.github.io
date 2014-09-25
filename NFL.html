@@ -105,19 +105,17 @@ d3.csv("compiled.csv", function(d) {
 console.log("hello1")
   		console.log(dataset)
 
-			svg.selectAll("text")
+			svg.append("g")
+			.selectAll("text")
 			.data(dataset)
 			.enter()
 			.append("text")
+			.attr("class","conference")
 			 .attr("x",function(d,i) {return xScale(i);})
 			 .attr("y",function(d,i) {return h-yScale(i);})
 			 .text(function(d) { return d.key;});
 
-		svg.selectAll("text")
-		.transition()
-		.duration(1000)
-		.attr("x",function(d,i) {return xScale(weeks/2);})
-		.attr("y",function(d,i) {return h-yScale(wins/2);})
+	
 
  
 
