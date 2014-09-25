@@ -57,15 +57,15 @@ var generateVis = function() {
 	svg = d3.select("#chart")
 			.append("svg")
 			.attr("width",w)
-			.attr("height",h)
+			.attr("height",h);
 
 	//Scale dimensions
 	var xScale = d3.scale.linear()
 					.domain([0,weeks])
-					.range([0,w-padding*1.5])
+					.range([0,w-padding*1.5]);
 	var yScale = d3.scale.linear()
 					.domain([0,wins])
-					.range([h-padding,padding])
+					.range([h-padding,padding]);
 
 	//axis dimensions
 	var xAxis = d3.svg.axis()
@@ -88,7 +88,7 @@ var generateVis = function() {
 				svg.append("g")
 					.attr("class","xaxis")
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
-					.call(xAxis)
+					.call(xAxis);
 
 	//g group var
 
@@ -108,7 +108,7 @@ var generateVis = function() {
 			 .attr("y", function(d,i) { return yScale(i)})
 			 .text(function(d) { return d.division;})*/
 
-		console.log("hello3")
+		console.log("hello4")
   		console.log(dataset)
 
   	//Team names
