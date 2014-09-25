@@ -34,8 +34,9 @@ path,
                 value="Button" 
                 onclick="update()" />
 
-<div id ="chart"></div>
+
 <body>
+<div id ="chart"></div>
 <script type = "text/javascript">
 
 //Global variables
@@ -99,7 +100,7 @@ var generateVis = function() {
 					.y(function(d) {return yScale(d.y);})
 					.interpolate("cardinal")
 	//Calling line
-	var pats = svg
+	var pats = svg.selectAll("g")
 			.data(dataset)
 			.enter()
 			.append("path")
@@ -119,10 +120,10 @@ var generateVis = function() {
 			 .text(function(d) { return d.key;})
 
 	//Team names
-			g.append("text")
+	/*		g.append("text")
 			 .attr("x", function(d,i) { return xScale(i)/2})
 			 .attr("y", function(d,i) { return yScale(i)})
-			 .text(function(d) { return d.division;})
+			 .text(function(d) { return d.division;})*/
 
 		console.log("hello3")
   		console.log(dataset)
