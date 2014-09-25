@@ -144,13 +144,12 @@ d3.csv("compiled.csv", function(da) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y", function(d) { return +d.week3})
+			 .attr("y", function(d,i) { return h/2+i*10})
 			 .text(function(d,i) { 
 
 			 	console.log(d.conference)
 			 	console.log(d.team)
-			 	console.log(d.week)
-			 	console.log(d.i)
+			 	console.log(d.week3)
 				console.log(i)
 			 	return d.team;});
 
