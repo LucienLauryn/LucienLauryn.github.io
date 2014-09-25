@@ -57,7 +57,9 @@ d3.csv("data.csv",function(csv) {
       .attr("cy",cheight-cmargin)
       .attr("r",1)
       // throwing in a title element
-      .append("title")
+      .append("text")
+        .attr("x", 20)
+        .attr("y",20)
         .text(function(d) {
           return d.country;});
 
