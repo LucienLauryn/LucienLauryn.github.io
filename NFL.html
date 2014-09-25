@@ -90,15 +90,16 @@ var generateVis = function() {
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis);
 
+	var data = [1,2,3,4,5,6]
 
 	//Team names
 			svg.selectAll("text")
-			 .data(dataset)
+			 .data(data)
 			 .enter()
 			 .append("text")
 			 .attr("x",w/2)
 			 .attr("y", h/2)
-			 .text(function(d) { return d.key;})
+			 .text(function(d) { return d;})
 
 		console.log("hello7")
   		console.log(dataset)
