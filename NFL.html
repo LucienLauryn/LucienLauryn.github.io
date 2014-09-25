@@ -137,6 +137,8 @@ d3.csv("compiled.csv", function(d) {
 
 			g.append("g")
 			.selectAll("text")
+			.data(dataset)
+			.enter()
 			.data(function(d) { return d.values})
 			.enter()
 			.append("text")
@@ -145,6 +147,7 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("y", h/2)
 			 .text(function(d,i) { 
 			 	console.log(d.division)
+			 	console.log(d.values.team)
 			 	return d.team;});
 
 	})
