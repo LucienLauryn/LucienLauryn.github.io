@@ -42,6 +42,7 @@ path,
 	var weeks = 16;
 	var wins = 16;
 	var teams = 32;
+
 	var seq = function(x) {
 		for (i = 0; i <= x; i++) { list.push(i); }
 		return list
@@ -61,9 +62,6 @@ path,
 					.domain([0,wins])
 					.range([h-margin,margin]);
 
-	var t = d3.scale.linear()
-					.domain([0,teams])
-					.range([0, h]);
 	//axis dimensions
 	var xAxis = d3.svg.axis()
 					.scale(xScale)
@@ -142,19 +140,10 @@ d3.csv("compiled.csv", function(d) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y",function(d,i) {return t(i);})
+			 .attr("y",function(d,i) {return (d[i].values.length);})
 			 .text(function(d,i) { 
-			 	console.log(dataset.length)
-			 	console.log(dataset[i])
-			 	console.log("dataset[i].values:" + dataset[i].values)
-			 	console.log("dataset[i].values[i].team:" + dataset[i].values[4].team)
-			 	d = []
-			 	for (j =  0; j < dataset[i].values.length; j++) {
-
-			 	console.log("dataset[i].values[j].team:" + dataset[i].values[j].team)
-			 		d.push(dataset[i].values[j].team)
-			 	}
-			 	return d;});
+			 	
+			 	return d[i].values.team;});
 
 	})
 
