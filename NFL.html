@@ -93,10 +93,10 @@ var generateVis = function() {
 	var data = [1,2,3,4,5,6]
 
 	//Team names
-			svg.selectAll("text")
+			svg.selectAll("g")
 			 .data(data)
 			 .enter()
-			 .append("text")
+			 .append("g")
 			 .attr("x",w/2)
 			 .attr("y", h/2)
 			 .text(function(d) { return d;})
