@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Regular Season NFL Standings</title>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<style>
+path.pats { 
+stroke: mediumpurple;
+stroke-width: 4px;
+}
+      
+path.pats:hover {
+stroke-width: 7px;
+stroke: yellow;
+	}
+	
+path,
+	line { 
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+	}
+	text {
+	font-family: perpetua;
+		font-size: 11px;
+		}
+		
+	</style>
+</head>
+
+<body>
+
+<div id ="chart"></div>
+<script type = "text/javascript">
+
+//Global variables
+var dataset
+
+
+//Vis function
+var generateVis = function() {
+	var w = 600;
+	var h = 550;
+	var padding = 20;
+	var weeks = 16;
+	var wins = 16;
+
+	svg = d3.select("#chart")
+			.append("svg")
+			.attr("width",w)
+			.attr("height",h);
+
+
+
+	//Team names
+			svg.selectAll("g")
+			 .data(dataset)
+			 .enter()
+			 .append("g")
+			 .attr("x", function(d,i) { return xScale(i)/2})
+			 .attr("y", function(d,i) { return yScale(i)})
+			 .text(function(d) { return d.key;})
+
+		console.log("hello6")
+  		console.log(dataset)
+
+  	//Team names
+		
+	}
+
+
+
+//Loading data and generating vis	
+d3.csv("compiled.csv", function(d) {
+  
+  dataset=d3.nest()
+  .key(function(d) {return d.conference;})
+  //.key(function(d) {return d.division;})
+  /*.rollup(function(leaves) { return leaves.length; })*/
+  .entries(d);
+
+
+	generateVis();
+
+	})
+
+</script>
+</body>
+</html>
