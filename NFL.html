@@ -107,13 +107,13 @@ path,
 
 
 //Loading data and generating vis	
-d3.csv("compiled.csv", function(da) {
+d3.csv("compiled.csv", function(d) {
   
   var dataset=d3.nest()
   .key(function(d) {return d.conference;})
   //.key(function(d) {return d.division;})
   /*.rollup(function(leaves) { return leaves.length; })*/
-  .entries(da);
+  .entries(d);
 
 
 			svg.append("rect")
@@ -127,6 +127,7 @@ d3.csv("compiled.csv", function(da) {
 
   			var g=svg.selectAll("g").data(dataset).enter()
     .append("g")
+      .attr("transform",function(d,i) {return "translate("0","+(100*i)+")";});
 
 		/*	g
 			.selectAll("text")
