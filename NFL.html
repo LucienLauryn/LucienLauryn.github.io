@@ -142,7 +142,7 @@ d3.csv("compiled.csv", function(d) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y",function(d,i) {return yScale(dataset[i]);})
+			 .attr("y",function(d,i) {return t;})
 			 .text(function(d,i) { return dataset[i].values.team;});
  
 
