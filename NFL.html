@@ -139,7 +139,7 @@ d3.csv("compiled.csv", function(d) {
 			.selectAll("text")
 			.data(dataset)
 			.enter()
-			.data(function(q) { return q.values})
+			.data(function(d) { return d})
 			.enter()
 			.append("text")
 			.attr("class","team")
