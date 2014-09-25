@@ -34,14 +34,14 @@ path,
 <div id ="chart"></div>
 <script type = "text/javascript">
 
-	var w = 600;
-	var h = 550;
-	var margin = 20;
+	var w = 800;
+	var h = 600;
+	var margin = 50;
+	var teamcol = 200;
 
 	var weeks = 16;
 	var wins = 16;
-	var list = []
-
+	var teams = 32;
 	var seq = function(x) {
 		for (i = 0; i <= x; i++) { list.push(i); }
 		return list
@@ -56,11 +56,14 @@ path,
 	//Scale dimensions
 	var xScale = d3.scale.linear()
 					.domain([0,weeks])
-					.range([0,w-margin*1.5]);
+					.range([0,w-margin-teamcol]);
 	var yScale = d3.scale.linear()
 					.domain([0,wins])
 					.range([h-margin,margin]);
 
+	var t = d3.scale.linear()
+					.domain([0,teams])
+					.range([0, h]);
 	//axis dimensions
 	var xAxis = d3.svg.axis()
 					.scale(xScale)
@@ -76,13 +79,32 @@ path,
 	//Drawing the Axis
 				svg.append("g")
 					.attr("class","yaxis")
-					.attr("transform","translate("+ margin +",0)")
+					.attr("transform","translate(" + (margin/2+teamcol) + "," + 0 + ")")
 					.call(yAxis);
 					
 				svg.append("g")
 					.attr("class","xaxis")
-					.attr("transform","translate("+ margin +","+(h-margin)+")")
+					.attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin)+")")
 					.call(xAxis);
+
+	//Drawing Gridlines
+				svg.selectAll(".h")
+					.data(d3.range(0,teams))
+					.enter()
+					.append("line")
+					.attr("class","h")
+					.attr("x1", 0).attr("x2", teamcol)
+					.attr("y1",t).attr("y2", t)
+					.attr("transform","translate(0,"+margin+")")
+
+			/*	svg.selectAll(".v")
+					.data(d3.range(0,16))
+					.enter()
+					.append("line")
+					.attr("class","v")
+					.attr("x1", xScale).attr("x2", xScale)
+					.attr("y1", margin).attr("y2", h-margin);*/
+
 
 //Loading data and generating vis	
 d3.csv("compiled.csv", function(d) {
@@ -93,8 +115,6 @@ d3.csv("compiled.csv", function(d) {
   /*.rollup(function(leaves) { return leaves.length; })*/
   .entries(d);
 
-
-
 			svg.append("rect")
 			 .attr("x", Math.random()*500)
 			 .attr("y",Math.random()*500)
@@ -102,10 +122,10 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("height",40)
 			 .attr("fill","purple");
 
-console.log("hello1")
-  		console.log(dataset)
-
-			svg.append("g")
+  			console.log(dataset)
+  			var g = svg.append("g")
+			
+			g
 			.selectAll("text")
 			.data(dataset)
 			.enter()
@@ -115,8 +135,15 @@ console.log("hello1")
 			 .attr("y",function(d,i) {return h-yScale(i);})
 			 .text(function(d) { return d.key;});
 
-	
-
+			g
+			.selectAll("text")
+			.data(dataset)
+			.enter()
+			.append("text")
+			.attr("class","team")
+			 .attr("x", margin)
+			 .attr("y",function(d,i) {return i*(h/dataset.values.length);})
+			 .text(function(d) { return dataset.values.team;});
  
 
 	})
