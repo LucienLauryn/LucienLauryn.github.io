@@ -131,8 +131,8 @@ d3.csv("compiled.csv", function(d) {
 			.enter()
 			.append("text")
 			.attr("class","conference")
-			 .attr("x",function(d,i) {return xScale(i);})
-			 .attr("y",function(d,i) {return h-yScale(i);})
+			 .attr("x",function(d,i) {return margin;})
+			 .attr("y",function(d,i) {return h-yScale(i)*50;})
 			 .text(function(d) { return d.key;});
 
 			g.append("g")
@@ -144,8 +144,8 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("x", margin)
 			 .attr("y",function(d,i) {return (d[i].values.length);})
 			 .text(function(d,i) { 
-			 	
-			 	return d[i].values.team;});
+			 	console.log(d)
+			 	return dataseti].values.team;});
 
 	})
 
