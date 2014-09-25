@@ -142,10 +142,11 @@ d3.csv("compiled.csv", function(d) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y",function(d,i) {return (dataset[i].values.length);})
+			 .attr("y", h/2)
 			 .text(function(d,i) { 
 			 	console.log(d.values)
-
+			 	console.log(d.values.team)
+			 	console.log(d.key.values)
 			 	return d.values.team;});
 
 	})
