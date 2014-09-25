@@ -44,25 +44,13 @@ d3.csv("data.csv",function(csv) {
     .attr("transform",function(d,i) {return "translate("+(100*i)+",0)";});
   // we add a rect element with a title element
   // so that mousing over the cell will tell us which continent it is
-  g
-    .append("rect")
-    .attr("x",cmargin)
-    .attr("y",cmargin)
-    .attr("width",cwidth-2*cmargin)
-    .attr("height",cheight-2*cmargin)
-      .append("title")
-      .text(function(d) {return d.key;})
-  // we also write its name below.
-  g
-    .append("text")
-    .attr("y",cheight+10)
-    .attr("x",cmargin)
-    .text(function(d) {return d.key;})
+
   
   // now marks, initiated to default values
   g.selectAll("circle")
   // we are getting the values of the countries like this:
-  .data(function(d) {return d.values}) 
+  .data(function(d) {console.log(d)
+    return d.values}) 
   .enter()
       .append("circle")
       .attr("cx",cmargin)
@@ -70,7 +58,7 @@ d3.csv("data.csv",function(csv) {
       .attr("r",1)
       // throwing in a title element
       .append("title")
-        .text(function(d) {return d.country;});
+        .text(function(d) {console.log(d) return d.country;});
 
   // finally, we animate our marks in position
   g.selectAll("circle").transition().duration(1000)
