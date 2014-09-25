@@ -59,36 +59,6 @@ var generateVis = function() {
 			.attr("width",w)
 			.attr("height",h);
 
-	//Scale dimensions
-	var xScale = d3.scale.linear()
-					.domain([0,weeks])
-					.range([0,w-padding*1.5]);
-	var yScale = d3.scale.linear()
-					.domain([0,wins])
-					.range([h-padding,padding]);
-
-	//axis dimensions
-	var xAxis = d3.svg.axis()
-					.scale(xScale)
-					.orient("bottom")
-					.ticks(weeks);
-
-	var yAxis = d3.svg.axis()
-					.scale(yScale)
-					.orient("left")
-					.ticks(wins);
-	
-
-	//Drawing the Axis
-				svg.append("g")
-					.attr("class","yaxis")
-					.attr("transform","translate("+ padding +",0)")
-					.call(yAxis);
-					
-				svg.append("g")
-					.attr("class","xaxis")
-					.attr("transform","translate("+ padding +","+(h-padding)+")")
-					.call(xAxis);
 
 	var data = [1,2,3,4,5,6]
 
