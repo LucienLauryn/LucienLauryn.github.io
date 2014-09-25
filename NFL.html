@@ -30,7 +30,7 @@ path,
 </head>
 
 <body>
-	
+
 <div id ="chart"></div>
 <script type = "text/javascript">
 
@@ -77,24 +77,23 @@ var generateVis = function() {
 					.scale(yScale)
 					.orient("left")
 					.ticks(wins);
-	
+	//g group var
+	var g = svg.data(dataset)
+				.enter()
+				.append("g");
 
 	//Drawing the Axis
-				svg.append("g")
+				g
 					.attr("class","yaxis")
 					.attr("transform","translate("+ padding +",0)")
 					.call(yAxis);
 					
-				svg.append("g")
+				g
 					.attr("class","xaxis")
 					.attr("transform","translate("+ padding +","+(h-padding)+")")
 					.call(xAxis)
 
-	//g group var
-	var g = svg.selectAll("g")
-				.data(dataset)
-				.enter()
-				.append("g");
+	
 
 	//Team names?
 			g.append("text")
