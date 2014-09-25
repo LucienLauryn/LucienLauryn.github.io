@@ -51,6 +51,13 @@ var generateVis = function() {
 			.attr("width",w)
 			.attr("height",h);
 
+	//Scale dimensions
+	var xScale = d3.scale.linear()
+					.domain([0,weeks])
+					.range([0,w-padding*1.5]);
+	var yScale = d3.scale.linear()
+					.domain([0,wins])
+					.range([h-padding,padding]);
 
 
 	//Team names
