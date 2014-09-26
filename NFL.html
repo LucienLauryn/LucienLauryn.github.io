@@ -132,8 +132,14 @@ d3.csv("compiled.csv", function(d) {
 	  			.attr("class","data")
 	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*240)+")";})
 
-	  		g.selectAll("g.team")
+	  var division = g.selectAll("g.division")
 	  		 .data(function(d) { return d.values;})
+	  		 .enter() 
+			 .append("g")
+		 	 .attr("class","division")
+
+		 	 division.selectAll("g.team")
+			  .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
 		 	 .attr("class","team")
