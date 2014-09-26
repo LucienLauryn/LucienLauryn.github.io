@@ -133,14 +133,14 @@ d3.csv("compiled.csv", function(d) {
 	  			.enter()
 	  			.append("g")
 	  			.attr("class",function(d,i) { return d.key})
-	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*100)+")";})
+	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*240)+")";})
 
 	  var division = g.selectAll("g.division")
 	  		 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
-		 	 .attr("class","division")
-		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*20)+")";})
+		 	 .attr("class",function(d,i) { return d.key})
+		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*60)+")";})
 
 
 		 	 division.selectAll("g.team")
