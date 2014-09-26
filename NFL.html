@@ -61,9 +61,6 @@ path,
 					.domain([0,wins])
 					.range([h-margin,margin]);
 
-	var t = d3.scale.linear()
-					.domain([0,teams])
-					.range([0, h]);
 	//axis dimensions
 	var xAxis = d3.svg.axis()
 					.scale(xScale)
@@ -96,7 +93,7 @@ path,
 					.append("line")
 					.attr("class","h")
 					.attr("x1", 0).attr("x2", teamcol)
-					.attr("y1",t).attr("y2", t)
+					.attr("y1",yScale*2).attr("y2", yScale*2)
 					.attr("transform","translate(0,"+margin+")")
 
 			/*	svg.selectAll(".v")
@@ -133,7 +130,7 @@ d3.csv("compiled.csv", function(d) {
 	  			.enter()
 	  			.append("g")
 	  			.attr("class","data")
-	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*160)+")";})
+	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*240)+")";})
 
 	  		g.selectAll("g.team")
 	  		 .data(function(d) { return d.values;})
@@ -142,7 +139,7 @@ d3.csv("compiled.csv", function(d) {
 		 	 .attr("class","team")
 		 	 .append("text")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return (i*10);})
+			 .attr("y", function(d,i) { return (i*10+5);})
 			 .text(function(d,i) { 
 			 	console.log(d)
 			 	return d.team;});
