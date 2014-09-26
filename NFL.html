@@ -93,7 +93,7 @@ path,
 					.append("line")
 					.attr("class","h")
 					.attr("x1", 0).attr("x2", teamcol)
-					.attr("y1",yScale*2).attr("y2", yScale*2)
+					.attr("y1",yScale(32)).attr("y2", yScale(32))
 					.attr("transform","translate(0,"+margin+")")
 
 			/*	svg.selectAll(".v")
@@ -139,7 +139,7 @@ d3.csv("compiled.csv", function(d) {
 		 	 .attr("class","team")
 		 	 .append("text")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return (i*10+5);})
+			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { 
 			 	console.log(d)
 			 	return d.team;});
