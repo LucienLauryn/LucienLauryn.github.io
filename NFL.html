@@ -127,7 +127,7 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  			var g=svg.selectAll("g")
+  			var g=svg.selectAll("g.conference")
   				  .data(dataset)
   				  .append("g")
   				  .attr("class","conference")
