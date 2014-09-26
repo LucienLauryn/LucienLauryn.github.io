@@ -110,7 +110,7 @@ d3.csv("compiled.csv", function(d) {
   
   var dataset=d3.nest()
   .key(function(d) {return d.conference;})
-  //.key(function(d) {return d.division;})
+  .key(function(d) {return d.division;})
   /*.rollup(function(leaves) { return leaves.length; })*/
   .entries(d);
 
@@ -139,12 +139,12 @@ d3.csv("compiled.csv", function(d) {
 		 	 .attr("class","team")
 		 	 .append("text")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return yScale(i);})
+			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { 
 			 	console.log(d)
 			 	return d.team;});
 
-		/*	 g.selectAll("g.wins")
+			 g.selectAll("g.wins")
 	  		 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
@@ -155,7 +155,7 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("(function(d,i) { 
 			 	console.log(d)
 			 	return d.wins;});
-*/
+
 	})
 
 
