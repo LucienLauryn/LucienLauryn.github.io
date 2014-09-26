@@ -127,15 +127,15 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  		var g = svg.append("g").attr("class","dataset")
-	  			.selectAll("g.data")
+  		var conference = svg.append("g").attr("class","dataset")
+	  			.selectAll("g")
 	  			.data(dataset)
 	  			.enter()
 	  			.append("g")
 	  			.attr("class",function(d,i) { return d.key})
 	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*240)+")";})
 
-	  var division = g.selectAll("g.division")
+	  var division = conference.selectAll("g")
 	  		 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
@@ -143,11 +143,11 @@ d3.csv("compiled.csv", function(d) {
 		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*60)+")";})
 
 
-		 	 division.selectAll("g.team")
+		 	 division.selectAll("g")
 			  .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
-		 	 .attr("class","team")
+		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("text")
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
