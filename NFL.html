@@ -88,12 +88,11 @@ path,
 					.call(xAxis);
 
 	//Drawing Gridlines
-				svg
-				   .selectAll("g.h")
+				svg.append("g")
+					.attr("class","line")
+				    .selectAll(".h")
 					.data(d3.range(0,teams))
 					.enter()
-					.append("g")
-					.attr("class","line")
 					.append("line")
 					.attr("class","h")
 					.attr("x1", 0).attr("x2", teamcol)
@@ -139,7 +138,7 @@ d3.csv("compiled.csv", function(d) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return t(i)*10})
+			 .attr("y", function(d,i) { return t(i)})
 			 .text(function(d,i) { 
 			 	console.log(d.conference)
 			 	console.log(d.team)
