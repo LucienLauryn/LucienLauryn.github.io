@@ -127,11 +127,11 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  			var g=svg.selectAll("g.conference")
+  			var g=svg.selectAll("g")
   				  .data(dataset)
   				  .append("g")
   				  .attr("class","conference")
-   				  .attr("transform",function(d,i) {return "translate(0," + (10*i)+")";});
+   				  .attr("transform",function(d,i) {return "translate(0," +(i)+")";});
 
 
 			g.selectAll("text")
