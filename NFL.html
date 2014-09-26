@@ -133,7 +133,7 @@ d3.csv("compiled.csv", function(d) {
 	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*40)+")";})
 
 	  var division = g.selectAll("g.division")
-	  		 .data(function(d) { return d;})
+	  		 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
 		 	 .attr("class","division")
