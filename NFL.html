@@ -42,6 +42,9 @@ path,
 	var weeks = 16;
 	var wins = 16;
 	var teams = 32;
+
+	var conference = ["NFC", "AFC"]
+
 	var seq = function(x) {
 		for (i = 0; i <= x; i++) { list.push(i); }
 		return list
@@ -129,7 +132,7 @@ d3.csv("compiled.csv", function(d) {
 	  			.data(dataset)
 	  			.enter()
 	  			.append("g")
-	  			.attr("class","data")
+	  			.attr("class",function(d,i) { return d.key})
 	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*40)+")";})
 
 	  var division = g.selectAll("g.division")
