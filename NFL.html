@@ -133,17 +133,13 @@ d3.csv("compiled.csv", function(d) {
 
 
 			g.selectAll("text")
-			.data(function(d) { return d.values })
+			.data(function(d) { console.log(d) return d.values })
 			.enter()
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return t(i)})
+			 .attr("y", function(d,i) { return t(i)+margin})
 			 .text(function(d,i) { 
-			 	console.log(d.conference)
-			 	console.log(d.team)
-			 	console.log(d.week3)
-				console.log(i)
 			 	return d.team;});
 
 	})
