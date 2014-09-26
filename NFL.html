@@ -130,13 +130,15 @@ d3.csv("compiled.csv", function(d) {
 	  			.enter()
 	  			.append("g")
 	  			.attr("class","data")
-	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*240)+")";})
+	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*40)+")";})
 
 	  var division = g.selectAll("g.division")
-	  		 .data(function(d) { return d.key;})
+	  		 .data(function(d) { return d;})
 	  		 .enter() 
 			 .append("g")
 		 	 .attr("class","division")
+		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*8)+")";})
+
 
 		 	 division.selectAll("g.team")
 			  .data(function(d) { return d.values;})
