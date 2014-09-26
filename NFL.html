@@ -88,9 +88,12 @@ path,
 					.call(xAxis);
 
 	//Drawing Gridlines
-				svg.selectAll(".h")
+				svg
+				   .selectAll("g.h")
 					.data(d3.range(0,teams))
 					.enter()
+					.append("g")
+					.attr("class","line")
 					.append("line")
 					.attr("class","h")
 					.attr("x1", 0).attr("x2", teamcol)
@@ -126,18 +129,9 @@ d3.csv("compiled.csv", function(d) {
   			console.log(dataset)
 
   			var g=svg.data(dataset)
-    .append("g")
-      .attr("transform",function(d,i) {return "translate(0," + (100*i)+")";});
+  				  .append("g")
+   				   .attr("transform",function(d,i) {return "translate(0," + (100*i)+")";});
 
-		/*	g
-			.selectAll("text")
-			.data(dataset)
-			.enter()
-			.append("text")
-			.attr("class","conference")
-			 .attr("x",function(d,i) {return margin;})
-			 .attr("y",function(d,i) {return h-yScale(i)*50;})
-			 .text(function(d) { return d.key;});*/
 
 			g.selectAll("text")
 			.data(function(d) { return d.values })
@@ -145,7 +139,7 @@ d3.csv("compiled.csv", function(d) {
 			.append("text")
 			.attr("class","team")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return h/2+i*10})
+			 .attr("y", function(d,i) { return t(i)*10})
 			 .text(function(d,i) { 
 			 	console.log(d.conference)
 			 	console.log(d.team)
