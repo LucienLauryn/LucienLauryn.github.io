@@ -129,7 +129,7 @@ d3.csv("compiled.csv", function(d) {
     .append("g")
       .attr("transform",function(d,i) {
       	console.log(i)
-      	return "translate(0," + (50*i)+")";});
+      	return "translate(0," + (50*(i+1))+")";});
 
 		/*	g
 			.selectAll("text")
