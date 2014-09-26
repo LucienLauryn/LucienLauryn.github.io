@@ -105,7 +105,7 @@ path,
 					.attr("x1", xScale).attr("x2", xScale)
 					.attr("y1", margin).attr("y2", h-margin);*/
 
-				svg.append("g")
+
 //Loading data and generating vis	
 d3.csv("compiled.csv", function(d) {
   
@@ -125,8 +125,9 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  			var g=svg.append("g").data(dataset).enter()
-    		  .attr("transform",function(d,i) {return "translate(0," + (100*i) + ")";});
+  			var g=svg.selectAll("g").data(dataset).enter()
+    .append("g")
+      .attr("transform",function(d,i) {return "translate(0," + (100*i)+")";});
 
 		/*	g
 			.selectAll("text")
