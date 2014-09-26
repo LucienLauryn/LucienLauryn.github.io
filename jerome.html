@@ -26,6 +26,26 @@ d3.selectAll("span").append("p").html(function(d,i) { return "HEllo" + i;})
 
 text2 = ["heldo", "poop"]
 d3.select("p").selectAll("span").data(text2).exit().style("color","red")
+
+
+
+
+
+
+
+			g.selectAll("text")
+			.data(function(d) { return d.values })
+			.enter()
+			.append("text")
+			.attr("class","team")
+			 .attr("x", margin)
+			 .attr("y", function(d,i) { return 0;})
+			 .text(function(d,i) { 
+			 	console.log(d)
+			 	return d.team;});
+
+
+			 	
 </script>
 </body>
 </html>

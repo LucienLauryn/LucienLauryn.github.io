@@ -127,22 +127,16 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  			var g=svg.selectAll("g")
-  				  .data(dataset)
-  				  .append("g")
-  				  .attr("class","conference")
+  			svg.append("g")
+  			.selectAll("g.conference")
+  			.data(dataset)
+  			.enter()
+  			.append("g")
+  			.attr("class","conference")
+  			.text("hey")
 
 
-			g.selectAll("text")
-			.data(function(d) { return d.values })
-			.enter()
-			.append("text")
-			.attr("class","team")
-			 .attr("x", margin)
-			 .attr("y", function(d,i) { return 0;})
-			 .text(function(d,i) { 
-			 	console.log(d)
-			 	return d.team;});
+
 
 	})
 
