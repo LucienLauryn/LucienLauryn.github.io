@@ -132,8 +132,8 @@ d3.csv("compiled.csv", function(d) {
 	  			.data(dataset)
 	  			.enter()
 	  			.append("g")
-	  			.attr("class","data");
-	  			.attr("transform","translate(0,"+margin+")")
+	  			.attr("class","data")
+	  			.attr("transform","translate(0,"+margin+")");
 
 	  		g.selectAll("g.team")
 	  		 .data(function(d) { return d.values;})
