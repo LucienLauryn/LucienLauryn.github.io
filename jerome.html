@@ -20,12 +20,6 @@ var g = svg.selectAll("g").data(text).enter().append("g")
 
 g.append("p").html(String)
 
-d3.select("body").select("p").selectAll("span").data(text).enter().append("span").html(String)
-
-d3.selectAll("span").append("p").html(function(d,i) { return "HEllo" + i;})
-
-text2 = ["heldo", "poop"]
-d3.select("p").selectAll("span").data(text2).exit().style("color","red")
 
 
 
@@ -45,7 +39,7 @@ d3.select("p").selectAll("span").data(text2).exit().style("color","red")
 			 	return d.team;});
 
 
-			 	
+
 </script>
 </body>
 </html>
