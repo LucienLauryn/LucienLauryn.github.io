@@ -125,9 +125,8 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  			var g=svg.data(dataset).enter()
-    .append("g")
-      .attr("transform",function(d,i) {return "translate(0," + (100*i) + ")";});
+  			var g=svg.append("g").data(dataset).enter()
+    		  .attr("transform",function(d,i) {return "translate(0," + (100*i) + ")";});
 
 		/*	g
 			.selectAll("text")
