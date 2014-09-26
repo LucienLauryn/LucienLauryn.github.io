@@ -131,10 +131,9 @@ d3.csv("compiled.csv", function(d) {
   				  .data(dataset)
   				  .append("g")
   				  .attr("class","conference")
-   				  .attr("transform",function(d,i) {return "translate(0," +(i)+")";});
 
 
-			g.selectAll("text.team")
+			g.selectAll("text")
 			.data(function(d) { return d.values })
 			.enter()
 			.append("text")
