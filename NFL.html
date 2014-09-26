@@ -134,7 +134,7 @@ d3.csv("compiled.csv", function(d) {
    				  .attr("transform",function(d,i) {return "translate(0," +(i)+")";});
 
 
-			g.selectAll("text")
+			g.selectAll("text.team")
 			.data(function(d) { return d.values })
 			.enter()
 			.append("text")
