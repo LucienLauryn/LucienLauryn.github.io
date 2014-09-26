@@ -125,7 +125,7 @@ d3.csv("compiled.csv", function(d) {
 
   			console.log(dataset)
 
-  			var g=svg.selectAll("g").data(dataset).enter()
+  			var g=svg.data(dataset)
     .append("g")
       .attr("transform",function(d,i) {return "translate(0," + (100*i)+")";});
 
