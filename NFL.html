@@ -22,8 +22,8 @@ path,
 	shape-rendering: crispEdges;
 	}
 	text {
-	font-family: perpetua;
-		font-size: 11px;
+	font-family: garamond;
+		font-size: 13px;
 		}
 		
 	</style>
@@ -129,8 +129,7 @@ d3.csv("compiled.csv", function(d) {
 
   			var g=svg.data(dataset)
   				  .append("g")
-   				   .attr("transform",function(d,i) {return "translate(0," + (100*i)+")";});
-
+   			
 
 			g.selectAll("text")
 			.data(function(d) { return d.values })
