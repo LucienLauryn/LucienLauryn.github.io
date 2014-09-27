@@ -177,8 +177,8 @@ console.log(data[0])
 
 var line = d3.svg.line()
     .interpolate("basis")
-    .x(function(d) { return x(d.Week); })
-    .y(function(d) { return y(d.cities); });
+    .x(function(d) { return xScale(d.Week); })
+    .y(function(d) { return yScale(d.cities); });
 
 
  var city = svg.selectAll(".city")
