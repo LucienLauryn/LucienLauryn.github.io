@@ -157,17 +157,18 @@ d3.csv("compiled.csv", function(d) {
 
 d3.csv("compiled2.csv", function(error,data) {
 
-console.log(data[0])
-
+  //Sets up the ordinal scale
   var color = d3.scale.category10();
 
+  //Removes the first column 
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
 
-
+  //Sets up the domain and mapping function
   var cities = color.domain().map(function(name) {
     return {
       name: name,
-      values: data.map(function(d) {
-        return {Week: d.Week, cities: +d[name]};
+      values: 
+      data.map(function(d) {return {Week: d.Week, cities: +d[name]};
       })
     };
   });
