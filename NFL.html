@@ -128,44 +128,45 @@ d3.csv("compiled.csv", function(d) {
   			console.log(dataset)
 
   		var conference = svg.append("g").attr("class","dataset")
-	  			.selectAll("g")
-	  			.data(dataset)
-	  			.enter()
-	  			.append("g")
-	  			.attr("class",function(d,i) { return d.key})
-	  			.attr("transform",function(d,i) { return "translate(0,"+(margin+i*240)+")";})
+  			.selectAll("g")
+  			.data(dataset)
+  			.enter()
+  			.append("g")
+  			.attr("class",function(d,i) { return d.key})
+  			.attr("transform",function(d,i) { return "translate(0,"+(i*240)+")";})
 
-	  var division = conference.selectAll("g")
+	  var division = conference
+	  		 .selectAll("g")
 	  		 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
 		 	 .attr("class",function(d,i) { return d.key})
 		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*60)+")";})
 
-
-		 	 division.selectAll("g")
-			  .data(function(d) { return d.values;})
+		var team = division
+		 	 .selectAll("g")
+			 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
+
+			 team
 		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("text")
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { 
-			 	console.log(d)
 			 	return d.team;});
 
-			/* g.selectAll("g.wins")
-	  		 .data(function(d) { return d.values;})
-	  		 .enter() 
-			 .append("g")
-		 	 .attr("class","wins")
-		 	 .append("lines")
-			 .attr("x", margin/2+teamcol)
-			 .attr("y", function(d,i) { return (i*15);})
-			 .attr("(function(d,i) { 
-			 	console.log(d)
-			 	return d.wins;});*/
+			 var line = d3.svg.line()
+					.x(function(d) { return xScale(d.x);})
+					.y(function(d) { return yScale(d.y);})
+					.interpolate("cardinal")
+
+
+			team
+		 	 .attr("class", function(d,i) { return d.team + " wins"})
+		 	 .append("path")
+		 	 .attr("d",line)
 
 	})
 
