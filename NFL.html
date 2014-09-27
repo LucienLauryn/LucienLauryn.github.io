@@ -178,7 +178,6 @@ d3.csv("compiled.csv", function(d) {
 			svg.append("path")
 			.data(dataset)
 			.enter()
-		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("path")
 		 	 .attr("d",line)
 
