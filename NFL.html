@@ -19,7 +19,7 @@ path,
 		}
 
 
-g.Baltimore:hover { 
+.Baltimore:hover { 
 	color: purple;
 }
 
@@ -146,11 +146,11 @@ d3.csv("compiled.csv", function(d) {
 			 .append("g")
 
 			 team
-		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("text")
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { return d.team;})
+		 	 .attr("class", function(d,i) { return d.team})
 
 	});
 
