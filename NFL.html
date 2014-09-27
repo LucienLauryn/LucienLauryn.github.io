@@ -197,7 +197,7 @@ var line = d3.svg.line()
 	wins.append("circle")
       .attr("class", "wins")
       .attr("cx", function(d) { return xScale(d.Week); })
-      .attr("cy", function(d) { return yScale(d.wins)); })
+      .attr("cy", function(d) { return yScale(d.wins); })
       .style("stroke", function(d,i) { return color(i); })
 	  .attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin)+")")
 });
