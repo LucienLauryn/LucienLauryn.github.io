@@ -157,11 +157,39 @@ d3.csv("compiled.csv", function(d) {
 
 d3.csv("compiled2.csv", function(error,data) {
 
-console.log(error)
-  var color = d3.scale.category10();
-  console.log(data)
+console.log(data[0])
 
-		
+  var color = d3.scale.category10();
+
+
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {Week: d.Week, cities: +d[name]};
+      })
+    };
+  });
+
+  console.log(cities)
+
+var line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d) { return x(d.Week); })
+    .y(function(d) { return y(d.cities); });
+
+
+ var city = svg.selectAll(".city")
+      .data(cities)
+    .enter().append("g")
+      .attr("class", "city");
+
+	city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+      .style("stroke", function(d) { return color(d.name); });
 });
 
 
