@@ -186,6 +186,7 @@ var line = d3.svg.line()
       .data(wins)
      .enter().append("g")
       .attr("class", function(d) { return d.wins});
+	  .attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
 
     //lines and cricles
 	wins.append("path")
