@@ -161,30 +161,30 @@ d3.csv("compiled2.csv", function(error,data) {
   var color = d3.scale.category10();
 
   //Removes the first column 
-var ga = color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
- console.log(ga)
+ color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
+
   //Sets up the domain and mapping function
-  var cities = color.domain().map(function(name) {
+  var wins = color.domain().map(function(name) {
     return {
       name: name,
       values: 
-      data.map(function(d) {return {Week: d.Week, cities: +d[name]};
+      data.map(function(d) {return {Week: d.Week, wins: +d[name]};
       })
     };
   });
 
-  console.log(cities)
+  console.log(wins)
 
 var line = d3.svg.line()
     .interpolate("basis")
     .x(function(d) { return xScale(d.Week); })
-    .y(function(d) { return yScale(d.cities); });
+    .y(function(d) { return yScale(d.wins); });
 
 
  var city = svg.selectAll(".city")
-      .data(cities)
+      .data(wins)
     .enter().append("g")
-      .attr("class", function(d) { return d.cities});
+      .attr("class", function(d) { return d.wins});
 
 	city.append("path")
       .attr("class", "line")
