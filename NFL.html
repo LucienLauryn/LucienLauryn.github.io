@@ -6,30 +6,14 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<style>
 
-      
-path.pats:hover {
-stroke-width: 7px;
-stroke: yellow;
-	}
-	
-path,
-	line { 
-	fill: none;
-	stroke: black;
-	shape-rendering: crispEdges;
-	}
-	text {
-	font-family: garamond;
-		font-size: 13px;
-		}
 .wins line:hover {
 	background-color: red ;
 }
-.Baltimore:hover { 
+text.Baltimore:hover { 
 	background-color: purple;
 }
 
-.Tampa.Bay:hover { 
+.Tampa.Bay text:hover { 
 	background-color: purple;
 }
 		
@@ -203,6 +187,7 @@ var line = d3.svg.line()
       .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
+      .style("stroke-width", 10)
 
       wins.selectAll("circle")
       .data(function(d) { return d.values})
