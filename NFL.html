@@ -178,7 +178,7 @@ d3.csv("compiled2.csv", function(error,data) {
 
 var line = d3.svg.line()
     .interpolate("basis")
-    .x(function(d) { return xScale(d.Week); })
+    .x(function(d) { return xScale(d.Week-1); })
     .y(function(d) { return yScale(d.wins); });
 
 
