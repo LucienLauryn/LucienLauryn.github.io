@@ -162,7 +162,6 @@ console.log(data[0])
   var color = d3.scale.category10();
 
 
-  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
 
   var cities = color.domain().map(function(name) {
     return {
