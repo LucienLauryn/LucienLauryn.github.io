@@ -192,7 +192,7 @@ var line = d3.svg.line()
       .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
-	  .attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin)+")")
+	  .attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
 
 
 });
