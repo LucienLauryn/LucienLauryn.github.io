@@ -15,11 +15,9 @@ path,
 	font-family: garamond;
 		font-size: 13px;
 		}
+		
 .wins line:hover {
 	background-color: red ;
-}
-text.Baltimore:hover { 
-	background-color: purple;
 }
 
 g.Baltimore < text:hover { 
@@ -149,11 +147,11 @@ d3.csv("compiled.csv", function(d) {
 			 .append("g")
 
 			 team
+		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("text")
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { return d.team;})
-		 	 .attr("class", function(d,i) { return d.team})
 
 	});
 
