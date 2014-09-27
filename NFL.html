@@ -106,7 +106,7 @@ path,
 					.attr("y1", margin).attr("y2", h-margin);*/
 
 
-//Loading data and generating vis	
+//Loading Team names 
 d3.csv("compiled.csv", function(d) {
   
   var dataset=d3.nest()
@@ -114,7 +114,6 @@ d3.csv("compiled.csv", function(d) {
   .key(function(d) {return d.division;})
   /*.rollup(function(leaves) { return leaves.length; })*/
   .entries(d);
-
 
 			svg.append("rect")
 			 .attr("x", Math.random()*500)
@@ -155,32 +154,17 @@ d3.csv("compiled.csv", function(d) {
 			 .text(function(d,i) { 
 			 	return d.team;});
 
-			 var dataset = [
-		{x:0, y:0},
-		{x: 0.5, y:50},
-		{x:1, y:80},
-		{x:2, y:40},
-		{x:3, y:30},
-		{x: 4, y: 10},
-		{x: 4.5, y: 60},
-		{x: 4.9, y:95},
-		{x: 5.5, y: 80},
-		{x: 6, y: 0},
-		]
-
-			 var line = d3.svg.line()
-					.x(function(d) { return d.y;})
-					.y(function(d) { return d.x;})
-					.interpolate("cardinal")
-
-
-			svg.append("path")
-			.datum(dataset)
-		 	 .append("path")
-		 	 .attr("d",line)
-
 	})
 
+d3.csv("compiled2.csv", function(error,data) {
+
+  var color = d3.scale.category10();
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
+
+  console.log(data)
+
+		
+}
 
 </script>
 </body>
