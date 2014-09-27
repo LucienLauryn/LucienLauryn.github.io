@@ -161,7 +161,8 @@ d3.csv("compiled2.csv", function(error,data) {
   var color = d3.scale.category10();
 
   //Removes the first column 
-
+var ga = color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
+ console.log(ga)
   //Sets up the domain and mapping function
   var cities = color.domain().map(function(name) {
     return {
