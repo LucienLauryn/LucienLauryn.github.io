@@ -158,13 +158,13 @@ d3.csv("compiled.csv", function(d) {
 			 	return d.team;});
 
 			 var line = d3.svg.line()
-					.x(function(d) { return xScale(d.x);})
-					.y(function(d) { return yScale(d.y);})
+					.x(function(d) { return xScale(d.week.length);})
+					.y(function(d) { return yScale(d.week);})
 					.interpolate("cardinal")
 
 
 			team
-		 	 .attr("class", function(d,i) { return d.team + " wins"})
+		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("path")
 		 	 .attr("d",line)
 
