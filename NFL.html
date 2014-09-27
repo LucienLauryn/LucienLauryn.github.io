@@ -14,13 +14,15 @@ path,
 	}
 	text {
 	font-family: garamond;
-		font-size: 13px;
+	font-size: 13px;
 		color: blue;
 		}
 
 
 .Baltimore:hover { 
 	fill: blue;
+	background-color: purple;
+	stroke-width: 20px;
 }
 
 	</style>
@@ -129,7 +131,7 @@ d3.csv("compiled.csv", function(d) {
   			.enter()
   			.append("g")
   			.attr("class",function(d,i) { return d.key})
-  			.attr("transform",function(d,i) { return "translate(0,"+(i*240)+")";})
+  			.attr("transform",function(d,i) { return "translate(0,"+(i*256)+")";})
 
 	  var division = conference
 	  		 .selectAll("g")
@@ -137,7 +139,7 @@ d3.csv("compiled.csv", function(d) {
 	  		 .enter() 
 			 .append("g")
 		 	 .attr("class",function(d,i) { return d.key})
-		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*60)+")";})
+		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*64)+")";})
 
 		var team = division
 		 	 .selectAll("g")
@@ -148,7 +150,7 @@ d3.csv("compiled.csv", function(d) {
 			 team
 		 	 .append("text")
 			 .attr("x", margin)
-			 .attr("y", function(d,i) { return (i*15);})
+			 .attr("y", function(d,i) { return (i*16);})
 			 .text(function(d,i) { return d.team;})
 		 	 .attr("class", function(d,i) { return d.team})
 
