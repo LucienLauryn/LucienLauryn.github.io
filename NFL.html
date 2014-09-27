@@ -36,8 +36,8 @@ path,
 	var margin = 50;
 	var teamcol = 200;
 
-	var weeks = 3;
-	var wins = 3;
+	var weeks = 16;
+	var wins = 16;
 	var teams = 32;
 
 	var conference = ["NFC", "AFC"]
@@ -86,7 +86,7 @@ path,
 					.call(xAxis);
 
 	//Drawing Gridlines
-				svg.append("g")
+				/*svg.append("g")
 					.attr("class","line")
 				    .selectAll(".h")
 					.data(d3.range(0,teams))
@@ -95,7 +95,7 @@ path,
 					.attr("class","h")
 					.attr("x1", 0).attr("x2", teamcol)
 					.attr("y1",yScale).attr("y2", yScale)
-					.attr("transform","translate(0,"+margin+")")
+					.attr("transform","translate(0,"+margin+")")*/
 
 			/*	svg.selectAll(".v")
 					.data(d3.range(0,16))
@@ -182,15 +182,24 @@ var line = d3.svg.line()
     .y(function(d) { return yScale(d.wins); });
 
 
- var city = svg.selectAll(".city")
+ var wins = svg.selectAll(".city")
       .data(wins)
-    .enter().append("g")
+     .enter().append("g")
       .attr("class", function(d) { return d.wins});
 
-	city.append("path")
+    //lines and cricles
+	wins.append("path")
       .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); });
+	  .attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin)+")")
+
+	wins.append("circle")
+      .attr("class", "wins")
+      .attr("cx", function(d) { return xScale(d.Week); })
+      .attr("cy", function(d) { return yScale(d.wins)); })
+      .style("stroke", function(d,i) { return color(i); });
+	  .attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin)+")")
 });
 
 
