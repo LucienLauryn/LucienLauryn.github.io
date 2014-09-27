@@ -122,7 +122,6 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("height",40)
 			 .attr("fill","purple");
 
-  			console.log(dataset)
 
   		var conference = svg.append("g").attr("class","dataset")
   			.selectAll("g")
@@ -158,6 +157,8 @@ d3.csv("compiled.csv", function(d) {
 
 d3.csv("compiled2.csv", function(error,data) {
 
+console.log(error)
+console.log(data)
   var color = d3.scale.category10();
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
 
