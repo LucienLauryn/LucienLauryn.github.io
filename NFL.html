@@ -178,14 +178,14 @@ d3.csv("compiled2.csv", function(error,data) {
 
 var line = d3.svg.line()
     .interpolate("basis")
-    .x(function(d) { return xScale(d.Week-1); })
+    .x(function(d) { return xScale(d.Week); })
     .y(function(d) { return yScale(d.wins); });
 
 
  var wins = svg.selectAll(".city")
       .data(wins)
      .enter().append("g")
-      .attr("class", function(d) { return d.wins})
+      .attr("class", function(d) { return d.name})
 	  .attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
 
     //lines and cricles
@@ -194,6 +194,14 @@ var line = d3.svg.line()
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
 
+      wins.selectAll("circle")
+      .data(function(d) { return d.values})
+      .enter()
+      .attr("class", "circlewins")
+      .attr("cx", function(d) { return (+d.Week); })
+      .attr("cy", function(d) { return (+d.wins)); })
+	  .attr("r", 5)
+      .style("stroke", function(d,i) { return color(i); })
 
 });
 
