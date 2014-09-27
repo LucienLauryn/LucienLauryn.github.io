@@ -6,6 +6,15 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<style>
 
+path,
+	line { 
+	fill: none;
+	shape-rendering: crispEdges;
+	}
+	text {
+	font-family: garamond;
+		font-size: 13px;
+		}
 .wins line:hover {
 	background-color: red ;
 }
@@ -13,7 +22,7 @@ text.Baltimore:hover {
 	background-color: purple;
 }
 
-.Tampa.Bay text:hover { 
+g.Baltimore < text:hover { 
 	background-color: purple;
 }
 		
@@ -140,12 +149,11 @@ d3.csv("compiled.csv", function(d) {
 			 .append("g")
 
 			 team
-		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("text")
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
-			 .text(function(d,i) { 
-			 	return d.team;});
+			 .text(function(d,i) { return d.team;})
+		 	 .attr("class", function(d,i) { return d.team})
 
 	});
 
@@ -187,7 +195,6 @@ var line = d3.svg.line()
       .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
-      .style("stroke-width", 10)
 
       wins.selectAll("circle")
       .data(function(d) { return d.values})
