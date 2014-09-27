@@ -5,10 +5,7 @@
 	<title>Regular Season NFL Standings</title>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<style>
-path.pats { 
-stroke: mediumpurple;
-stroke-width: 4px;
-}
+
       
 path.pats:hover {
 stroke-width: 7px;
@@ -45,6 +42,7 @@ path,
 
 	var conference = ["NFC", "AFC"]
 
+	var list = []
 	var seq = function(x) {
 		for (i = 0; i <= x; i++) { list.push(i); }
 		return list
@@ -155,11 +153,12 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { 
+			 	console.log(d.week)
 			 	return d.team;});
 
 			 var line = d3.svg.line()
-					.x(function(d) { return xScale(d.week.length);})
-					.y(function(d) { return yScale(d.week);})
+					.x(function(d) { return seq(3);})
+					.y(function(d) { return {+d.week1,+d.week2,+d.week3} );})
 					.interpolate("cardinal")
 
 
