@@ -153,7 +153,6 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*15);})
 			 .text(function(d,i) { 
-			 	console.log(d.week)
 			 	return d.team;});
 
 			 var dataset = [
@@ -176,8 +175,7 @@ d3.csv("compiled.csv", function(d) {
 
 
 			svg.append("path")
-			.data(dataset)
-			.enter()
+			.datum(dataset)
 		 	 .append("path")
 		 	 .attr("d",line)
 
