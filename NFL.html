@@ -158,13 +158,14 @@ d3.csv("compiled.csv", function(d) {
 d3.csv("compiled2.csv", function(error,data) {
 
   //Sets up the ordinal scale
-  var color = d3.scale.category10();
+  var ordinal = d3.scale.ordinal();
 
+  var color = d3.scale.category10();
   //Removes the first column 
- color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
+ ordinal.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
 
   //Sets up the domain and mapping function
-  var wins = color.domain().map(function(name) {
+  var wins = ordinal.domain().map(function(name) {
     return {
       name: name,
       values: 
@@ -187,9 +188,9 @@ var line = d3.svg.line()
       .attr("class", function(d) { return d.wins});
 
 	city.append("path")
-      .attr("class", "line")
+      .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { return color(d.name); });
+      .style("stroke", function(d,i) { return color(i); });
 });
 
 
