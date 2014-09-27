@@ -156,13 +156,28 @@ d3.csv("compiled.csv", function(d) {
 			 	console.log(d.week)
 			 	return d.team;});
 
+			 var dataset = [
+		{x:0, y:0},
+		{x: 0.5, y:50},
+		{x:1, y:80},
+		{x:2, y:40},
+		{x:3, y:30},
+		{x: 4, y: 10},
+		{x: 4.5, y: 60},
+		{x: 4.9, y:95},
+		{x: 5.5, y: 80},
+		{x: 6, y: 0},
+		]
+
 			 var line = d3.svg.line()
-					.x(function(d) { return seq(3);})
-					.y(function(d) { return d.week1;})
+					.x(function(d) { return d.y;})
+					.y(function(d) { return d.x;})
 					.interpolate("cardinal")
 
 
-			team
+			svg.append("path")
+			.data(dataset)
+			.enter()
 		 	 .attr("class", function(d,i) { return d.team})
 		 	 .append("path")
 		 	 .attr("d",line)
