@@ -154,7 +154,7 @@ d3.csv("compiled2.csv", function(error,data) {
   //Sets up the ordinal scale
   var ordinal = d3.scale.ordinal();
 
-  var color = d3.scale.category10();
+  var color = d3.scale.ordinal().range
   //Removes the first column 
  ordinal.domain(d3.keys(data[0]).filter(function(key) { return key !== "Week"; }));
 
@@ -189,11 +189,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("stroke-width", "2px")
       .style("opacity", 0.6)
-
-      wins.selectAll("circle")
-      .data(function(d) { return d.values})
-      .enter()
-      .append("circle")
+       .append("circle")
       .attr("class", function(d) { return data[0]})
       .attr("cx", function(d) { return xScale(+d.Week); })
       .attr("cy", function(d) { return yScale(+d.wins); })
@@ -201,6 +197,9 @@ var line = d3.svg.line()
 	  .style("fill", function(d,i) { return color(i)})
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
+
+   
+     
    
 });
 
