@@ -197,7 +197,7 @@ var line = d3.svg.line()
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
-      	d3.selectAll("text."+ d.name).style("fill","rgb("+((15-i)*255/15)+",255,255)")
+      	d3.selectAll("text."+ d.name).style("fill","rgb("+((18-i)*255/18)+","+((18-i)*255/18)+","+((18-i)*255/18)+")")
       	 console.log(d.name)
       })
        .on("mouseout", function(d) {
@@ -214,7 +214,7 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
-      	d3.select(this).style("fill","rgb("+((15-i)*255/15)+",255,255)")
+      	d3.select(this).style("fill","rgb("+((18-i)*255/18)+","+((18-i)*255/18)+","+((18-i)*255/18)+")")
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
       })
