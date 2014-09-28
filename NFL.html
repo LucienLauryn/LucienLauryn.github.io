@@ -226,6 +226,8 @@ var line = d3.svg.line()
       	d3.select(this).style("fill","black")
       	d3.selectAll("path."+ d.name).style("stroke-width","2px");
       })
+//Rectangles
+	wins
       .append("rect")
       .attr("x", (-3.2*margin))
 	  .attr("y", function(d,i) { return (margin+i*16);})
