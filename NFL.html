@@ -47,8 +47,8 @@ path.Baltimore:hover {
 	var margin = 50;
 	var teamcol = 200;
 
-	var weeks = 17;
-	var wins = 17;
+	var weeks = 16;
+	var wins = 16;
 	var teams = 32;
 
 	var conference = ["NFC", "AFC"]
@@ -148,13 +148,13 @@ d3.csv("compiled.csv", function(d) {
 			 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
+		 	 .attr("class", function(d,i) { return d.team})
 
 			 team
 		 	 .append("text")
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*16);})
 			 .text(function(d,i) { return d.team;})
-		 	 .attr("class", function(d,i) { return d.team})
 
 	});
 
@@ -199,7 +199,7 @@ var line = d3.svg.line()
       .style("stroke-width", "2px")
       .style("opacity", 0.6)
 
-      wins.selectAll("circle")
+/*      wins.selectAll("circle")
       .data(function(d) { return d.values})
       .enter()
       .append("circle")
@@ -209,7 +209,7 @@ var line = d3.svg.line()
 	  .style("fill", function(d,i) { return color(i)})
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
-  
+  */
 });
 
 
