@@ -22,7 +22,9 @@ path,
 	fill: blue;
 	background-color: purple;
 }
-
+.wins { 
+	shape-rendering: crispEdges;
+}
 	</style>
 </head>
 
@@ -36,8 +38,8 @@ path,
 	var margin = 50;
 	var teamcol = 200;
 
-	var weeks = 3;
-	var wins = 3;
+	var weeks = 16;
+	var wins = 16;
 	var teams = 32;
 
 	var conference = ["NFC", "AFC"]
@@ -115,12 +117,6 @@ d3.csv("compiled.csv", function(d) {
   /*.rollup(function(leaves) { return leaves.length; })*/
   .entries(d);
 
-			svg.append("rect")
-			 .attr("x", Math.random()*500)
-			 .attr("y",Math.random()*500)
-			 .attr("width",20)
-			 .attr("height",40)
-			 .attr("fill","purple");
 
 
   		var conference = svg.append("g").attr("class","dataset")
@@ -201,7 +197,7 @@ var line = d3.svg.line()
       .attr("class", "circlewins")
       .attr("cx", function(d) { return xScale(+d.Week*Math.random()*10); })
       .attr("cy", function(d) { return yScale(+d.wins); })
-	  .attr("r", 20)
+	  .attr("r", 3)
 	  .style("fill", function(d,i) { return color(i)})
       .style("stroke", function(d,i) { return color(i); })
    
