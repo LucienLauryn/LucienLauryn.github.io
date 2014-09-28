@@ -89,14 +89,6 @@ text {
 					.call(xAxis);
 
 
-	var sidetext = svg.append("text")
-				.attr("translate","rotate(180)")
-
-			sidetext
-				.text("NFC")
-				.attr("translate","transform(" + margin/2+teamcol +")")
-		
-
 
 	//Drawing Gridlines
 				/*svg.append("g")
@@ -144,14 +136,15 @@ d3.csv("compiled.csv", function(d) {
 			 .append("g")
 		 	 .attr("class",function(d,i) { return d.key})
 		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*64)+")";})
-
+		 	 .append("text",function(d,i) { return d.key})
+  			 .attr("translate","rotate(180)")
 		var team = division
 		 	 .selectAll("g")
 			 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
 		 	 
-
+console.log()
 			 team
 		 	 .append("text")
 		 	 .attr("class", function(d,i) { return d.team})
