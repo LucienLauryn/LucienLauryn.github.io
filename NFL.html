@@ -193,7 +193,7 @@ var line = d3.svg.line()
 	 
     //lines and cricles
 	wins.attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
-	append("path")
+	   .append("path")
 	  .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
@@ -213,9 +213,7 @@ var line = d3.svg.line()
       })
 
 
-	
-		
-/*      wins.selectAll("circle")
+      wins.selectAll("circle")
       .data(function(d) { return d.values})
       .enter()
       .append("circle")
@@ -225,7 +223,9 @@ var line = d3.svg.line()
 	  .style("fill", function(d,i) { return color(i)})
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
-  */
+      .append("title")
+      .text(function(d) { return "Week:"+ d.Week + "Team:" + data.name + "Wins:" })
+  
 });
 
 
