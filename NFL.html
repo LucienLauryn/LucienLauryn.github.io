@@ -196,9 +196,9 @@ var line = d3.svg.line()
       .style("opacity", 0.6)
       .on("mouseover", function(d) {
       	d3.select(this)
-      	  .style("stroke-width","4px")
-      	d3.select(this).select("text.Baltimore")
-      	  .style("fill","purple")
+      	  .style("stroke-width","4px");
+      	d3.select(this).selectAll("text." + d.name)
+      	  .style("fill","purple");
       	  
       })
        .on("mouseout", function(d) {
@@ -206,13 +206,6 @@ var line = d3.svg.line()
       	  .style("stroke-width","2px")
       })
 
-var l = d3.select("text.Baltimore")
-var la = d3.select("Tampa Bay")
-var l = d3.select(".Baltimore")
-
-var l = d3.select("text." + "Baltimore")
-console.log(l)
-console.log(la)
 /*      wins.selectAll("circle")
       .data(function(d) { return d.values})
       .enter()
