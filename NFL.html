@@ -221,13 +221,12 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
-      	d3.select(this).style("fill", function(d,i) { return citycolor(i)});
+      	d3.select(this).selectAll("text."+ d.name).style("fill", function(d,i) { return citycolor(i)});
       	//d3.selectAll("path."+ d.name).style("stroke-width","4px");
 
       })
        .on("mouseout", function(d) {
       	d3.select(this).style("fill","black")
-      	d3.select(this).style("font-weight", "none");
       	//d3.selectAll("path."+ d.name).style("stroke-width","2px");
 
       })
