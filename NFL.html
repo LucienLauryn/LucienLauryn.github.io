@@ -47,8 +47,8 @@ path.Baltimore:hover {
 	var margin = 50;
 	var teamcol = 200;
 
-	var weeks = 16;
-	var wins = 16;
+	var weeks = 17;
+	var wins = 17;
 	var teams = 32;
 
 	var conference = ["NFC", "AFC"]
@@ -203,7 +203,6 @@ var line = d3.svg.line()
       .data(function(d) { return d.values})
       .enter()
       .append("circle")
-      .attr("class", function(d) { return d.key})
       .attr("cx", function(d) { return xScale(+d.Week); })
       .attr("cy", function(d) { return yScale(+d.wins); })
 	  .attr("r", 3)
