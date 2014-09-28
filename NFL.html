@@ -174,7 +174,7 @@ d3.csv("compiled2.csv", function(error,data) {
   console.log(datacities)
 
 var line = d3.svg.line()
-    .interpolate("basis")
+    .interpolate("linear")
     .x(function(d) { return xScale(d.Week); })
     .y(function(d) { return yScale(d.wins); });
 
@@ -203,7 +203,8 @@ var line = d3.svg.line()
       	d3.select(this)
       	  .style("stroke-width","4px");
       	d3.select(this).selectAll("text."+ d.name)
-      	  .style("fill","purple");
+
+      	  .style("font-weight","bold");
 
       	 console.log(d.name)
       })
@@ -224,7 +225,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
       .append("title")
-      .text(function(d) { return "Week:"+ d.Week + "Team:" + data.name + "Wins:" })
+      .text(function(d) { return "Week:"+ d.Week + "Team:" + datacities.name + "Wins:" + d.wins + "Losses:"+(d.Week - d.wins) })
   
 });
 
