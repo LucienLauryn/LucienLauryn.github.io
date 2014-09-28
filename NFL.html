@@ -196,7 +196,7 @@ var line = d3.svg.line()
 	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
-      .style("stroke-width", "3px")
+      .style("stroke-width", "10px")
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
@@ -239,7 +239,7 @@ var line = d3.svg.line()
       	d3.select(this).style("fill", function(d,i) {console.log("id: "+ secondary(i)); return secondary(i); })
       })
        .on("mouseout", function(d) {
-      	d3.select(this).style("fill","black")
+      	d3.select(this).style("fill","lightgrey").style("opacity","20%")
       })
 
 	 
