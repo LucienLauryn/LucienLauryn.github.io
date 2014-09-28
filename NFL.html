@@ -17,12 +17,12 @@ text {
 	font-size: 15px;
 		}
 
-
+/*
 .Baltimore:hover{
 	font-weight: bold;
 	fill: purple;
 }
-
+*/
 .wins { 
 	shape-rendering: crispEdges;
 }
@@ -187,6 +187,7 @@ var line = d3.svg.line()
      .enter().append("g")
       .attr("class", function(d) { return d.name})
 
+//TEXT
  wins
  	 .append("text")
  	 .attr("class", function(d,i) { return d.name})
@@ -194,15 +195,16 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d) {
-      	d3.select(this).selectAll("text."+ d.name)
-      	d3.select(this).selectAll("path."+ d.name)
+      	d3.select(this).style("fill","orange")
+      	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
       })
        .on("mouseout", function(d) {
-      	d3.select(this)
-      	  .style("stroke-width","2px")
+      	d3.select(this).style("fill","black")
+      	d3.selectAll("path."+ d.name).style("stroke-width","2px");
       })
 	 
+
     //lines and cricles
 	wins.attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
 	   .append("path")
@@ -214,7 +216,7 @@ var line = d3.svg.line()
       .on("mouseover", function(d) {
       	d3.select(this)
       	  .style("stroke-width","4px");
-      	d3.select(this).selectAll("text."+ d.name)
+      	d3.selectAll("text."+ d.name).style("fill","orange")
       	 console.log(d.name)
       })
        .on("mouseout", function(d) {
