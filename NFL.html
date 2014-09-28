@@ -151,7 +151,7 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*16);})
 			 .text(function(d,i) { return d.team;})
-			 .on("mouseover", function(d) {
+			 .remove()
 		
 
       })
@@ -189,10 +189,17 @@ var line = d3.svg.line()
       .data(datacities)
      .enter().append("g")
       .attr("class", function(d) { return d.name})
-	  .attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
 
+ wins
+ 	 .append("text")
+ 	 .attr("class", function(d,i) { return d.name})
+	 .attr("x", margin)
+	 .attr("y", function(d,i) { return (margin+i*16);})
+	 .text(function(d,i) { return d.name;})
+	 
     //lines and cricles
-	wins.append("path")
+	wins.attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
+	append("path")
 	  .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
@@ -201,7 +208,7 @@ var line = d3.svg.line()
       .on("mouseover", function(d) {
       	d3.select(this)
       	  .style("stroke-width","4px");
-      	d3.select(this).selectAll("text")
+      	d3.select(this).selectAll("text."+ d.name)
       	  .style("fill","purple");
       	 console.log(d.name)
       })
@@ -211,13 +218,7 @@ var line = d3.svg.line()
       })
 
 
-	 wins
- 	 .append("text")
- 	 .attr("class", function(d,i) { return d.name})
-	 .attr("x", margin)
-	 .attr("y", function(d,i) { return (i*16);})
-	 .text(function(d,i) { return d.name;})
-	 
+	
 		
 /*      wins.selectAll("circle")
       .data(function(d) { return d.values})
