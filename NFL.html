@@ -151,6 +151,13 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*16);})
 			 .text(function(d,i) { return d.team;})
+			 .on("mouseover", function(d) {
+		      	d3.select(this)
+		      	  .style("stroke-width","4px");
+		      	d3.select(this).selectAll("path")
+		      	  .style("fill","purple");
+		      	 console.log(d.team)
+      })
 
 	});
 
