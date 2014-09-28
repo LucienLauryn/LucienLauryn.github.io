@@ -14,7 +14,7 @@ path, line {
 
 text {
 	font-family: perpetua, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 		}
 
 
@@ -67,7 +67,7 @@ text {
 					.range([0,w-margin-teamcol]);
 	var yScale = d3.scale.linear()
 					.domain([0,wins])
-					.range([h-margin,margin+10]);
+					.range([h-margin,(margin+20)]);
 
 	//axis dimensions
 	var xAxis = d3.svg.axis()
@@ -233,11 +233,12 @@ var line = d3.svg.line()
       .data(function(d) { return d.values})
       .enter()
       .append("circle")
+      .attr("class", function(d) {return d.team})
       .attr("cx", function(d) { return xScale(+d.Week); })
       .attr("cy", function(d) { return yScale(+d.wins); })
-	  .attr("r", 3)
-	  .style("fill", function(d,i) { return color(i)})
-      .style("stroke", function(d,i) { return color(i); })
+	  .attr("r", 10)
+	  .attr(d3.select(this))
+	  .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
       .append("title")
       .text(function(d) { return d.team + "\nWeek: "+ d.Week + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
