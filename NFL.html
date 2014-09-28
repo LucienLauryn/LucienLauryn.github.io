@@ -88,6 +88,11 @@ text {
 					.attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin*2)+")")
 					.call(xAxis);
 
+
+				svg.append("text")
+				.attr("translate","rotate(180)")
+				.attr("translate","transform(" + margin/2+teamcol +")")
+
 	//Drawing Gridlines
 				/*svg.append("g")
 					.attr("class","line")
@@ -215,7 +220,7 @@ var line = d3.svg.line()
  	wins
  	 .append("text")
  	 .attr("class", function(d,i) { return d.name})
-	 .attr("x", (-3.2*margin))
+	 .attr("x", (-3.5*margin))
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
@@ -226,10 +231,15 @@ var line = d3.svg.line()
       })
        .on("mouseout", function(d) {
       	d3.select(this).style("fill","black")
+      	d3.select(this).style("font-weight", "none");
       	d3.selectAll("path."+ d.name).style("stroke-width","2px");
+
       })
+
+
+       ="rotate(180)">Hello!</text>
 //Rectangles
-	wins
+	/*wins
       .append("rect")
       .attr("x", (-3.2*margin))
 	  .attr("y", function(d,i) { return (margin-10+i*16);})
@@ -242,7 +252,7 @@ var line = d3.svg.line()
       })
        .on("mouseout", function(d) {
       	d3.select(this).style("fill","lightgrey").style("opacity","20%")
-      })
+      })*/
 
 // cricles
       wins.selectAll("circle")
