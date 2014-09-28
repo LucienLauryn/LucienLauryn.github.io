@@ -118,7 +118,6 @@ d3.csv("compiled.csv", function(d) {
   .entries(d);
 
 
-
   		var conference = svg.append("g").attr("class","dataset")
   			.selectAll("g")
   			.data(dataset)
@@ -185,7 +184,7 @@ var line = d3.svg.line()
 
     //lines and cricles
 	wins.append("path")
-      .attr("class", "wins")
+      .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
       .style("stroke-width", "3px")
@@ -194,7 +193,7 @@ var line = d3.svg.line()
       .data(function(d) { return d.values})
       .enter()
       .append("circle")
-      .attr("class", "circlewins")
+      .attr("class", function(d) { return d.name})
       .attr("cx", function(d) { return xScale(+d.Week*Math.random()*10); })
       .attr("cy", function(d) { return yScale(+d.wins); })
 	  .attr("r", 3)
