@@ -205,7 +205,7 @@ var line = d3.svg.line()
       	  .style("stroke-width","2px")
       	d3.selectAll("text."+ d.name).style("fill","black")
       })
-       
+
 //TEXT
  wins
  	 .append("text")
@@ -213,7 +213,7 @@ var line = d3.svg.line()
 	 .attr("x", (-2*margin))
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
-	 .on("mouseover", function(d) {
+	 .on("mouseover", function(d,i) {
       	d3.select(this).style("fill","rgb("+(i*15)+",255,255)")
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
