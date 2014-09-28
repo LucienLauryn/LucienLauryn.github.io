@@ -169,7 +169,7 @@ d3.csv("compiled2.csv", function(error,data) {
     return {
       name: name,
       values: 
-      data.map(function(d) {return {Week: d.Week, wins: +d[name]};
+      data.map(function(d) {return {Week: d.Week, wins: +d[name], team: name};
       })
     };
   });
@@ -209,6 +209,7 @@ var line = d3.svg.line()
 
 
       	 console.log(d.name)
+
       })
        .on("mouseout", function(d) {
       	d3.select(this)
