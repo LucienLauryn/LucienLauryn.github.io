@@ -195,7 +195,7 @@ var line = d3.svg.line()
 	  .append("path")
 	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d,i) {console.log("id: "+ citycolor[i]); return citycolor[i]; })
+      .style("stroke", function(d,i) {console.log("id: "+ citycolor(i); return citycolor(i); })
       .style("stroke-width", "3px")
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
