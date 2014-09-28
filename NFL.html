@@ -18,7 +18,10 @@ text {
 		}
 
 
-
+.Baltimore:hover{
+	font-weight: bold;
+	fill: purple;
+}
 
 .wins { 
 	shape-rendering: crispEdges;
@@ -204,7 +207,6 @@ var line = d3.svg.line()
       	  .style("stroke-width","4px");
       	d3.select(this).selectAll("text."+ d.name)
 
-      	  .style("font-weight","bold");
 
       	 console.log(d.name)
       })
