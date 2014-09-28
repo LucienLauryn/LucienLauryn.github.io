@@ -195,9 +195,13 @@ var line = d3.svg.line()
       .style("opacity", 0.6)
       .on("mouseover", function(d) {
       	d3.select(this)
-      	  .style("stroke-width","10px")
-
-
+      	  .transition()
+      	  .delay(1000)
+      	  .style("stroke-width","4px")
+      })
+       .on("mouseout", function(d) {
+      	d3.select(this)
+      	  .style("stroke-width","2px")
       })
 
 /*      wins.selectAll("circle")
