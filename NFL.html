@@ -195,9 +195,10 @@ var line = d3.svg.line()
       .style("opacity", 0.6)
       .on("mouseover", function(d) {
       	d3.select(this)
-      	  .transition()
-      	  .delay(1000)
       	  .style("stroke-width","4px")
+      	d3.select(this).select(text.Baltimore)
+      	  .style("fill","purple")
+      	  
       })
        .on("mouseout", function(d) {
       	d3.select(this)
