@@ -156,7 +156,7 @@ d3.csv("compiled.csv", function(d) {
 
 d3.csv("compiled3.csv", function(error,data) {
 
-	console.log(data[0])
+	console.log(data)
 
   //Sets up the ordinal scale
   var ordinal = d3.scale.ordinal();
@@ -189,12 +189,12 @@ var line = d3.svg.line()
      .enter().append("g")
       .attr("class", function(d) { return d.name})
 
-    //lines and cricles
+//lines 
 	wins.attr("transform","translate("+ (margin/2+teamcol) +","+0+")")
 	  .append("path")
 	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d,i) { return color(i); })
+      .style("stroke", function(d,i) {console.log("id"+i); return color(i); })
       .style("stroke-width", "3px")
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
@@ -203,15 +203,14 @@ var line = d3.svg.line()
       	 console.log(d.name)
       })
        .on("mouseout", function(d) {
-      	d3.select(this)
-      	  .style("stroke-width","2px")
+      	d3.select(this).style("stroke-width","2px")
       	d3.selectAll("text."+ d.name).style("fill","black")
       })
       .append("title")
       .text(function(d) { return d.name + "\nWeek: "+ d.values.wins + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
 
 //TEXT
- wins
+ 	wins
  	 .append("text")
  	 .attr("class", function(d,i) { return d.name})
 	 .attr("x", (-3.2*margin))
@@ -226,9 +225,17 @@ var line = d3.svg.line()
       	d3.select(this).style("fill","black")
       	d3.selectAll("path."+ d.name).style("stroke-width","2px");
       })
+      .append("rect")
+      .attr("x", (-3.2*margin))
+	  .attr("y", function(d,i) { return (margin+i*16);})
+	  .attr("width", "15px")
+	  .attr("height", "5px")
+	  .style("fill","lightgrey")
+	  .style("opacity","lightgrey")
+
 	 
 
-
+// cricles
       wins.selectAll("circle")
       .data(function(d) { return d.values})
       .enter()
