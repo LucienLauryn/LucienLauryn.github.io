@@ -199,7 +199,7 @@ var line = d3.svg.line()
       	  .style("stroke-width","4px");
       	d3.select(this).selectAll("text." + d.name)
       	  .style("fill","purple");
-      	  
+      	 console.log(d3.select(this).select(d.name))
       })
        .on("mouseout", function(d) {
       	d3.select(this)
