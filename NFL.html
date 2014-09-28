@@ -89,9 +89,14 @@ text {
 					.call(xAxis);
 
 
-				svg.append("text")
+	var sidetext = svg.append("text")
 				.attr("translate","rotate(180)")
+
+			sidetext
+				.text("NFC")
 				.attr("translate","transform(" + margin/2+teamcol +")")
+		
+
 
 	//Drawing Gridlines
 				/*svg.append("g")
@@ -237,7 +242,6 @@ var line = d3.svg.line()
       })
 
 
-       ="rotate(180)">Hello!</text>
 //Rectangles
 	/*wins
       .append("rect")
