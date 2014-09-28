@@ -156,8 +156,6 @@ d3.csv("compiled.csv", function(d) {
 
 d3.csv("compiled3.csv", function(error,data) {
 
-	console.log(data)
-
   //Sets up the ordinal scale
   var ordinal = d3.scale.ordinal();
 
@@ -176,7 +174,10 @@ d3.csv("compiled3.csv", function(error,data) {
   });
 
 
-  console.log(datacities)
+var city = ["Dallas Cowboys","NY Giants","Philadelphia Eagles","Washington Redskins","Chicago Bears","Detroit Lions","Green Bay Packers","Minnesota Vikings","Atlanta Falcons","Carolina Panthers","New Orleans Saints","Tampa Bay Buccaneers","Arizona Cardinals","San Francisco-49ers","Seattle Seahawks","St Louis Rams","Buffalo Bills","Miami Dolphins","New England Patriots","NY Jets","Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers","Houston Texans","Indianapolis Colts","Jacksonville Jaguars","Tennessee Titans","Denver Broncos","Kansas City Chiefs","Oakland Raiders","San Diego Chargers"]
+
+
+ 	var citycolor = d3.scale.ordinal().domain(city).range(["red","blue","green","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue"])
 
 var line = d3.svg.line()
     .interpolate("linear")
@@ -194,7 +195,7 @@ var line = d3.svg.line()
 	  .append("path")
 	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d,i) {console.log("id"+i); return color(i); })
+      .style("stroke", function(d,i) {console.log("id: "+ citycolor[i]); return citycolor[i]; })
       .style("stroke-width", "3px")
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
