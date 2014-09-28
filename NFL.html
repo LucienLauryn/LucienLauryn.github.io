@@ -208,7 +208,7 @@ var line = d3.svg.line()
       	d3.selectAll("text."+ d.name).style("fill","black")
       })
       .append("title")
-      .text(function(d) { return d.key + "\nWeek: "+ d.values + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
+      .text(function(d) { return d.name + "\nWeek: "+ d.values.wins + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
 
 //TEXT
  wins
