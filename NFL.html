@@ -6,13 +6,13 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<style>
 
-path,
-	line { 
+path, line { 
 	fill: none;
 	stroke: black;
 	shape-rendering: crispEdges;
 	}
-	text {
+
+text {
 	font-family: garamond;
 	font-size: 15px;
 		}
@@ -21,11 +21,13 @@ path,
 .Baltimore:hover { 
 	fill: red;
 	font-weight: bold;
-
 }
-g > path { 
+.Baltimore:hover { 
+	stroke: red;
+	stroke-width: 10px;
+}
+. wins { 
 	shape-rendering: crispEdges;
-	stroke-width:10px;
 }
 
 
@@ -188,7 +190,7 @@ var line = d3.svg.line()
 
     //lines and cricles
 	wins.append("path")
-	  .attr("class", function(d) { return d.name})
+	  .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
       .style("stroke-width", "2px")
