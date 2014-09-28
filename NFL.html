@@ -195,7 +195,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("stroke-width", "2px")
       .style("opacity", 0.6)
-      .on("mouseover", function(d) {
+      .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
       	d3.selectAll("text."+ d.name).style("fill","rgb("+(i*15)+",255,255)")
       	 console.log(d.name)
