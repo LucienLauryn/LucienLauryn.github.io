@@ -21,6 +21,7 @@ path,
 .Baltimore:hover { 
 	fill: blue;
 	background-color: purple;
+	stroke-width: 10px;
 }
 .wins { 
 	shape-rendering: crispEdges;
@@ -194,7 +195,7 @@ var line = d3.svg.line()
       .data(function(d) { return d.values})
       .enter()
       .append("circle")
-      .attr("class", function(d) { return data[0]})
+      .attr("class", function(d) { return datacities.name})
       .attr("cx", function(d) { return xScale(+d.Week); })
       .attr("cy", function(d) { return yScale(+d.wins); })
 	  .attr("r", 3)
