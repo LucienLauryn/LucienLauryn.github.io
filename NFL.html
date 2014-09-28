@@ -192,6 +192,7 @@ var line = d3.svg.line()
       .attr("class", "wins")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
+      .style("stroke-width", "2px")
 
       wins.selectAll("circle")
       .data(function(d) { return d.values})
@@ -203,7 +204,7 @@ var line = d3.svg.line()
 	  .attr("r", 2)
 	  .style("fill", function(d,i) { return color(i)})
       .style("stroke", function(d,i) { return color(i); })
-      .style("stroke-width", "2px" })
+   
 });
 
 
