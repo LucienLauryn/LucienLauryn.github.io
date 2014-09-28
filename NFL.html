@@ -152,11 +152,8 @@ d3.csv("compiled.csv", function(d) {
 			 .attr("y", function(d,i) { return (i*16);})
 			 .text(function(d,i) { return d.team;})
 			 .on("mouseover", function(d) {
-		      	d3.select(this)
-		      	  .style("stroke-width","4px");
-		      	d3.select(this).selectAll("path")
-		      	  .style("fill","purple");
-		      	 console.log(d.team)
+		
+
       })
 
 	});
@@ -213,6 +210,15 @@ var line = d3.svg.line()
       	  .style("stroke-width","2px")
       })
 
+
+	 wins
+ 	 .append("text")
+ 	 .attr("class", function(d,i) { return d.name})
+	 .attr("x", margin)
+	 .attr("y", function(d,i) { return (i*16);})
+	 .text(function(d,i) { return d.name;})
+	 
+		
 /*      wins.selectAll("circle")
       .data(function(d) { return d.values})
       .enter()
