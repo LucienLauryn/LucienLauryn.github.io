@@ -17,12 +17,12 @@ text {
 	font-size: 15px;
 		}
 
-/*
+
 .Baltimore:hover{
 	font-weight: bold;
 	fill: purple;
 }
-*/
+
 .wins { 
 	shape-rendering: crispEdges;
 }
@@ -197,7 +197,7 @@ var line = d3.svg.line()
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
-      	d3.selectAll("text."+ d.name).style("fill","rgb("+((18-i)*255/18)+","+((18-i)*255/18)+","+((18-i)*255/18)+")")
+      	d3.selectAll("text."+ d.name).style("fill","purple")
       	 console.log(d.name)
       })
        .on("mouseout", function(d) {
@@ -214,7 +214,7 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
-      	d3.select(this).style("fill","rgb("+((18-i)*255/18)+","+((18-i)*255/18)+","+((18-i)*255/18)+")")
+      	d3.select(this).style("fill","purple")
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
       })
@@ -223,8 +223,6 @@ var line = d3.svg.line()
       	d3.selectAll("path."+ d.name).style("stroke-width","2px");
       })
 	 
-
-
 
 
       wins.selectAll("circle")
@@ -238,7 +236,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
       .append("title")
-      .text(function(d) { return "Week:"+ d.Week + "Team:" + d.team + "Wins:" + d.wins + "Losses:"+(d.Week - d.wins) })
+      .text(function(d) { return d.team  "\nWeek:"+ d.Week + "\nWins:" + d.wins + "\nLosses:"+(d.Week - d.wins) })
   
 });
 
