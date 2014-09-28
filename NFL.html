@@ -199,17 +199,16 @@ var line = d3.svg.line()
 	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return citycolor(i); })
-      .style("stroke-width", "3px")
+      .style("stroke-width", "2px")
       .style("shape-rendering","crispEdges")
        .style("opacity",.85)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
-      	d3.selectAll("text."+ d.name).style("stroke", function(d,i) {return citycolor(i); })
-      	 console.log(d.name)
+    	//d3.selectAll("text."+ d.name).style("stroke", function(d,i) {return citycolor(i); })
       })
        .on("mouseout", function(d) {
-      	d3.select(this).style("stroke-width","3px")
-      	d3.selectAll("text."+ d.name).style("fill","black")
+      	d3.select(this).style("stroke-width","2px")
+      	//d3.selectAll("text."+ d.name).style("fill","black")
       })
       .append("title")
       .text(function(d) { return d.name})
@@ -223,13 +222,13 @@ var line = d3.svg.line()
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
       	d3.select(this).style("fill", function(d,i) { return citycolor(i)});
-      	d3.selectAll("path."+ d.name).style("stroke-width","4px");
+      	//d3.selectAll("path."+ d.name).style("stroke-width","4px");
 
       })
        .on("mouseout", function(d) {
       	d3.select(this).style("fill","black")
       	d3.select(this).style("font-weight", "none");
-      	d3.selectAll("path."+ d.name).style("stroke-width","2px");
+      	//d3.selectAll("path."+ d.name).style("stroke-width","2px");
 
       })
 
