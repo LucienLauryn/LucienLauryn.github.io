@@ -67,7 +67,7 @@ text {
 					.range([0,w-margin-teamcol]);
 	var yScale = d3.scale.linear()
 					.domain([0,wins])
-					.range([h-margin,(margin+20)]);
+					.range([h-margin*1.5,(margin)]);
 
 	//axis dimensions
 	var xAxis = d3.svg.axis()
@@ -179,7 +179,7 @@ d3.csv("compiled3.csv", function(error,data) {
   console.log(datacities)
 
 var line = d3.svg.line()
-    .interpolate("cardinal")
+    .interpolate("linear")
     .x(function(d) { return xScale(d.Week); })
     .y(function(d) { return yScale(d.wins); });
 
@@ -208,7 +208,7 @@ var line = d3.svg.line()
       	d3.selectAll("text."+ d.name).style("fill","black")
       })
       .append("title")
-      .text(function(d) { return d.team + "\nWeek: "+ d.Week + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
+      .text(function(d) { return d.key + "\nWeek: "+ d.values + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
 
 //TEXT
  wins
@@ -237,8 +237,8 @@ var line = d3.svg.line()
       .attr("cx", function(d) { return xScale(+d.Week); })
       .attr("cy", function(d) { return yScale(+d.wins); })
 	  .attr("r", 3)
-	  .style("fill", "lightgrey")
-      .style("opacity", 0.70)
+	  .style("fill", "grey")
+      .style("opacity", 0.40)
       .append("title")
       .text(function(d) { return d.team + "\nWeek: "+ d.Week + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
   
