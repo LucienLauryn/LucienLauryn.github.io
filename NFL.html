@@ -20,8 +20,7 @@ text {
 
 .Baltimore:hover{
 	font-weight: bold;
-
-	fill: purple;
+	color: purple;
 }
 
 
@@ -138,7 +137,7 @@ d3.csv("compiled.csv", function(d) {
 		 	 .attr("transform",function(d,i) { return "translate(0,"+(margin+i*64)+")";})
 		 	 .append("text")
 		 	 .text(function(d,i) { return d.key})
-  			 .attr("translate","rotate(180)")
+  			 .attr("translate","transform(rotate(180))")
 
 		var team = division
 		 	 .selectAll("g")
