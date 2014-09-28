@@ -13,14 +13,15 @@ path, line {
 	}
 
 text {
-	font-family: garamond;
-	font-size: 15px;
+	font-family: perpetua, sans-serif;
+	font-size: 14px;
 		}
 
 
 .Baltimore:hover{
 	font-weight: bold;
-	fill: purple;
+	color: purple;
+	background-color:green;
 }
 
 .wins { 
@@ -32,6 +33,7 @@ text {
 </head>
 
 <body>
+<text> EVERYHITNG </text>
 
 <div id ="chart"></div>
 <script type = "text/javascript">
@@ -205,12 +207,14 @@ var line = d3.svg.line()
       	  .style("stroke-width","2px")
       	d3.selectAll("text."+ d.name).style("fill","black")
       })
+      .append("title")
+      .text(function(d) { return d.team + "\nWeek: "+ d.Week + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
 
 //TEXT
  wins
  	 .append("text")
  	 .attr("class", function(d,i) { return d.name})
-	 .attr("x", (-3*margin))
+	 .attr("x", (-3.2*margin))
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
