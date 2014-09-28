@@ -219,8 +219,8 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
-      	d3.select(this).style({"color", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i)})
-      	d3.select(this).style("font-weight", "bold")
+      	d3.select(this).style("color", function(d,i) { return citycolor(i)});
+      	d3.select(this).style("font-weight", "bold");
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
       })
