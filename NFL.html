@@ -236,7 +236,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
       .append("title")
-      .text(function(d) { return d.team  "\nWeek:"+ d.Week + "\nWins:" + d.wins + "\nLosses:"+(d.Week - d.wins) })
+      .text(function(d) { return d.team + "\nWeek:"+ d.Week + "\nWins:" + d.wins + "\nLosses:"+(d.Week - d.wins) })
   
 });
 
