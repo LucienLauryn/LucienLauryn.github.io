@@ -228,7 +228,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("opacity", 0.80)
       .append("title")
-      .text(function(d) { return "Week:"+ d.Week + "Team:" + datacities.name + "Wins:" + d.wins + "Losses:"+(d.Week - d.wins) })
+      .text(function(d) { return "Week:"+ d.Week + "Team:" + d.team + "Wins:" + d.wins + "Losses:"+(d.Week - d.wins) })
   
 });
 
