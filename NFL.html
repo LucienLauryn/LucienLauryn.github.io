@@ -195,6 +195,7 @@ var line = d3.svg.line()
 
     //lines and cricles
 	wins.append("path")
+	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
       .style("stroke-width", "2px")
