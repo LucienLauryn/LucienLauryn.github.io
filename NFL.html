@@ -25,7 +25,6 @@ text {
 }
 
 
-
 	</style>
 </head>
 
@@ -177,7 +176,8 @@ d3.csv("compiled3.csv", function(error,data) {
 var city = ["Dallas Cowboys","NY Giants","Philadelphia Eagles","Washington Redskins","Chicago Bears","Detroit Lions","Green Bay Packers","Minnesota Vikings","Atlanta Falcons","Carolina Panthers","New Orleans Saints","Tampa Bay Buccaneers","Arizona Cardinals","San Francisco-49ers","Seattle Seahawks","St Louis Rams","Buffalo Bills","Miami Dolphins","New England Patriots","NY Jets","Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers","Houston Texans","Indianapolis Colts","Jacksonville Jaguars","Tennessee Titans","Denver Broncos","Kansas City Chiefs","Oakland Raiders","San Diego Chargers"]
 
 
- 	var citycolor = d3.scale.ordinal().domain(city).range(["red","blue","green","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue","blue"])
+ 	var citycolor = d3.scale.ordinal().domain(city).range(["#002244","#192F6B","#773141","#03202F","#006DB0","#213D30","#4F2682","#BD0D18","#000000","#D2B887","#D60A0B","#870619","#AF1E2C","#06192E","#13264B","#00338D","#008D97","N#0D254C","#0C371D","#280353","#000000","#26201E","#000000","#02253A","#003B7B","#000000","#648FCC","#FB4F14","#B20032","#C4C8CB","#08214A"]
+ 		var secondary = d3.scale.ordinal().domain(city).range(["#8C8B8A","#CA001A","#FFB612","#DD4814","#C5C7CF","#FFCC00","#FFC52F","#000000","#0088CE","#000000","#89765F","#000000","#E6BE8A","#4EAE47","#C9AF74","#C60C30","#015679","#D6D6D6","#FFFFFF","#000000","#FB4F14","#E34912","#F2C800","#B31B34","#FFFFFF","#D0B239","#000080","#002244","#F2C800","#000000","#EEC607"]])
 
 var line = d3.svg.line()
     .interpolate("linear")
@@ -200,7 +200,7 @@ var line = d3.svg.line()
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
-      	d3.selectAll("text."+ d.name).style("fill","purple")
+      	d3.selectAll("text."+ d.name).style("stroke", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
       	 console.log(d.name)
       })
        .on("mouseout", function(d) {
@@ -231,10 +231,16 @@ var line = d3.svg.line()
       .append("rect")
       .attr("x", (-3.2*margin))
 	  .attr("y", function(d,i) { return (margin+i*16);})
-	  .attr("width", "15px")
-	  .attr("height", "5px")
+	  .attr("width", "45px")
+	  .attr("height", "20px")
 	  .style("fill","lightgrey")
-	  .style("opacity","lightgrey")
+	  .style("opacity","20%")
+	  .on("mouseover", function(d,i) {
+      	d3.select(this).style("fill", function(d,i) {console.log("id: "+ secondary(i)); return secondary(i); })
+      })
+       .on("mouseout", function(d) {
+      	d3.select(this).style("fill","black")
+      })
 
 	 
 
