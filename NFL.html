@@ -20,7 +20,7 @@ text {
 
 .Baltimore:hover{
 	font-weight: bold;
-	color: purple;
+	fill: purple;
 	background-color:green;
 }
 
@@ -195,7 +195,7 @@ var line = d3.svg.line()
 	  .attr("class", function(d) { return d.name})
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d,i) { return color(i); })
-      .style("stroke-width", "2px")
+      .style("stroke-width", "3px")
       .style("opacity", 0.6)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
