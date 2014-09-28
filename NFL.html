@@ -143,10 +143,11 @@ d3.csv("compiled.csv", function(d) {
 			 .data(function(d) { return d.values;})
 	  		 .enter() 
 			 .append("g")
-		 	 .attr("class", function(d,i) { return d.team})
+		 	 
 
 			 team
 		 	 .append("text")
+		 	 .attr("class", function(d,i) { return d.team})
 			 .attr("x", margin)
 			 .attr("y", function(d,i) { return (i*16);})
 			 .text(function(d,i) { return d.team;})
