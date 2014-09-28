@@ -30,7 +30,6 @@ text {
 </head>
 
 <body>
-<h1>NFL 2014-2015 Season</h1>
 <div id ="chart"></div>
 <script type = "text/javascript">
 
@@ -89,8 +88,9 @@ text {
 					.call(xAxis);
 
 				svg.append("h1")
-				   .text("NFL 2014-2015 Season")
-				.attr("transform","translate("+ (margin/2+teamcol) +","+(h-margin*2)+")")
+				   .html("NFL 2014-2015 Season")
+				   .attr("transform","translate("+ (margin/2+teamcol) +","+(h/2)+")")
+				   .attr("stroke","black")
 
 	//Drawing Gridlines
 				/*svg.append("g")
@@ -224,16 +224,16 @@ var line = d3.svg.line()
 	 .attr("x", (-3.5*margin))
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
-	 /*.on("mouseover", function(d,i) {
-      	d3.select(this).selectAll("text."+ d.name).style("fill", function(d,i) { return citycolor(i)});
+	 .on("mouseover", function(d,i) {
+      	d3.select(this).selectAll("text."+ d.name).style("stroke", function(d,i) { return citycolor(i)});
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
 
       })
        .on("mouseout", function(d) {
-      	d3.select(this).style("fill","black")
+      	d3.select(this).style("stroke","black")
       	d3.selectAll("path."+ d.name).style("stroke-width","2px");
 
-      })*/
+      })
 
 
 //Rectangles
