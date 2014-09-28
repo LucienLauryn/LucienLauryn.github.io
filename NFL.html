@@ -19,16 +19,11 @@ text {
 
 
 .Baltimore:hover{
-	stroke: purple;
 	font-weight: bold;
 	color: purple;
 	background-color:green;
 }
-.Baltimore {
-	stroke: purple;
-	font-weight: bold;
-	background-color:green;
-}
+
 
 
 	</style>
@@ -161,6 +156,8 @@ d3.csv("compiled.csv", function(d) {
 
 d3.csv("compiled3.csv", function(error,data) {
 
+	console.log(data[0])
+
   //Sets up the ordinal scale
   var ordinal = d3.scale.ordinal();
 
@@ -177,6 +174,7 @@ d3.csv("compiled3.csv", function(error,data) {
       })
     };
   });
+
 
   console.log(datacities)
 
