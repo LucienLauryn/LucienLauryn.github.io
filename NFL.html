@@ -200,10 +200,10 @@ var line = d3.svg.line()
       .attr("class", "circlewins")
       .attr("cx", function(d) { return xScale(+d.Week); })
       .attr("cy", function(d) { return yScale(+d.wins); })
-	  .attr("r", 1)
+	  .attr("r", 2)
 	  .style("fill", function(d,i) { return color(i)})
       .style("stroke", function(d,i) { return color(i); })
-
+      .style("stroke-width", "2px" })
 });
 
 
