@@ -218,7 +218,7 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
-      	d3.select(this).style("fill", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
+      	d3.select(this).style("color", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
       })
@@ -234,15 +234,13 @@ var line = d3.svg.line()
 	  .attr("width", "45px")
 	  .attr("height", "20px")
 	  .style("fill","lightgrey")
-	  .style("opacity","20%")
+	  .style("opacity",.2)
 	  .on("mouseover", function(d,i) {
       	d3.select(this).style("fill", function(d,i) {console.log("id: "+ secondary(i)); return secondary(i); })
       })
        .on("mouseout", function(d) {
       	d3.select(this).style("fill","lightgrey").style("opacity","20%")
       })
-
-	 
 
 // cricles
       wins.selectAll("circle")
