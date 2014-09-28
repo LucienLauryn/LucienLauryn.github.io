@@ -22,11 +22,9 @@ text {
 	fill: red;
 	font-weight: bold;
 }
-.Baltimore:hover { 
-	stroke: red;
-	stroke-width: 10px;
-}
-. wins { 
+
+
+.wins { 
 	shape-rendering: crispEdges;
 }
 
@@ -195,6 +193,12 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) { return color(i); })
       .style("stroke-width", "2px")
       .style("opacity", 0.6)
+      .on("mouseover", function(d) {
+      	d3.select(this)
+      	  .style("stroke-width","10px")
+
+
+      })
 
 /*      wins.selectAll("circle")
       .data(function(d) { return d.values})
