@@ -198,6 +198,7 @@ var line = d3.svg.line()
       .style("stroke", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
       .style("stroke-width", "3px")
       .style("shape-rendering","crispEdges")
+       .style("opacity",.85)
       .on("mouseover", function(d,i) {
       	d3.select(this).style("stroke-width","4px");
       	d3.selectAll("text."+ d.name).style("stroke", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
@@ -208,7 +209,7 @@ var line = d3.svg.line()
       	d3.selectAll("text."+ d.name).style("fill","black")
       })
       .append("title")
-      .text(function(d) { return d.name + "\nWeek: "+ d.values.wins + "\nWins: " + d.wins + "\nLosses: "+(d.Week - d.wins) })
+      .text(function(d) { return d.name})
 
 //TEXT
  	wins
@@ -218,7 +219,8 @@ var line = d3.svg.line()
 	 .attr("y", function(d,i) { return (margin+i*16);})
 	 .text(function(d,i) { return d.name;})
 	 .on("mouseover", function(d,i) {
-      	d3.select(this).style("color", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i); })
+      	d3.select(this).style({"color", function(d,i) {console.log("id: "+ citycolor(i)); return citycolor(i)})
+      	d3.select(this).style("font-weight", "bold")
       	d3.selectAll("path."+ d.name).style("stroke-width","4px");
       	 console.log(d.name)
       })
@@ -231,8 +233,8 @@ var line = d3.svg.line()
       .append("rect")
       .attr("x", (-3.2*margin))
 	  .attr("y", function(d,i) { return (margin-10+i*16);})
-	  .attr("width", "45px")
-	  .attr("height", "20px")
+	  .attr("width", teamcol))
+	  .attr("height", "22px")
 	  .style("fill","lightgrey")
 	  .style("opacity",.2)
 	  .on("mouseover", function(d,i) {
