@@ -5,12 +5,12 @@
 	text-decoration: none;
 	padding: 0;
 	margin: 0;
-
 }
 body { 
 	overflow-y: scroll;
 	font-family: perpetua, sans-serif;
 	text-align: center;
+
 	}
 
 nav {
@@ -18,19 +18,16 @@ nav {
 	float: left;
 	width: 100%;
 	height: 46px ;
-
 }
+
 nav > ul {
 	float: right;
 	width: 50%;
 	margin-right: 120px;
 	margin-top: 8px;
-
 }
-
 nav > ul li { 
 	float: left;
-
 }
 
 nav > ul li a { 
@@ -45,6 +42,16 @@ nav > ul li a {
 nav > ul li a:hover { 
 	background: #F4F4F4;
 	width: 60px;
+}
+.article ul > li a {
+	text-decoration: none;
+	color: black;
+	font-size: 17px;
+}
+.article ul > li:hover {
+	background: #F4F4F4;
+	width: 150px;
+
 }
 
 

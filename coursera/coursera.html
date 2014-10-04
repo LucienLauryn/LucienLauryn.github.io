@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Axis</title>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<style>
+
+path, line { 
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+	}
+
+text {
+	font-family: perpetua, sans-serif;
+	font-size: 14px;
+		}
+
+	</style>
+</head>
+
+<body>
+<div id ="chart"></div>
+<script type = "text/javascript">
+
+	var w = 400;
+	var h = 400;
+	var margin = 50;
+
+	var xdomain = 10;
+	var ydomain = 10;
+
+	svg = d3.select("#chart")
+			.append("svg")
+			.attr("width",w)
+			.attr("height",h);
+
+
+	//Scale dimensions
+	var xScale = d3.scale.linear()
+					.domain([0,xdomain])
+					.range([0,w-margin]);
+	var yScale = d3.scale.linear()
+					.domain([0,ydomain])
+					.range([h-margin, margin]);
+
+	//axis dimensions
+	var xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+					.ticks(10);
+
+	var yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("left")
+					.ticks(10);
+	
+
+	//Drawing the Axis
+
+				svg.append("g")
+					.attr("class","xaxis")
+					.attr("transform","translate("+ (margin/2) +","+(h-margin)+")")
+					.call(xAxis);
+
+				svg.append("g")
+					.attr("class","yaxis")
+					.attr("transform","translate(" + (margin/2) + "," + 0 + ")")
+					.call(yAxis);
+					
+</script>
+</body>
+</html>
