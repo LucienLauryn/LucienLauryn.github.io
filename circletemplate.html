@@ -64,7 +64,6 @@ text {
 	
 
 	//Drawing the Axis
-
 				svg.append("g")
 					.attr("class","xaxis")
 					.attr("transform","translate("+ (margin/2) +","+(h-margin/2)+")")
@@ -75,7 +74,7 @@ text {
 					.attr("transform","translate(" + (margin/2) + "," + margin/2 + ")")
 					.call(yAxis);
 					
-	d3.csv("data.csv", function(d, error) {
+	d3.csv("data.csv", function(d) {
 
 			  var dataset=d3.nest()
 		  .key(function(d) {return d.continent;})
@@ -84,7 +83,7 @@ text {
 		  .entries(d);
 
 		  console.log(dataset);
-		  
+
 				svg.append("g")
 			  	   .selectAll("circle")
 			  	   .data(dataset)
