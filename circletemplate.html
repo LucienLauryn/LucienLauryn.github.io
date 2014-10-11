@@ -46,11 +46,9 @@ text {
 					.domain([0,ydomain])
 					.range([h-margin, 0]);
 
-	var r = d3.scale.linear()
-					.domain([0,xdomain])
-					.range([0,ydomain]);
-	var c = d3.scale.category10()
-					.domain([0,xdomain])
+	var r=d3.scale.linear().domain([0,500]).range([0,20]);
+	
+	var c=d3.scale.category10().domain(["Africa","America","Asia","Europe","Oceania"]);
 
 
 	//axis dimensions
@@ -80,7 +78,7 @@ text {
 	d3.csv("data.csv", function(d, error) {
 
 
-		svg.append("g")
+				svg.append("g")
 			  	   .selectAll("circle")
 			  	   .data(d)
 			  	   .enter()
