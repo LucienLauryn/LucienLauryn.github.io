@@ -76,20 +76,18 @@ text {
 					
 	d3.csv("data.csv", function(d) {
 
-			  var dataset=d3.nest()
-		  .key(function(d) {return d.continent;})
-		  .sortKeys(d3.ascending)
-		  /*.rollup(function(leaves) { return leaves.length; })*/
-		  .entries(d);
+			
 
-		  console.log(dataset);
+		  console.log(d);
 
-				svg.append("g")
+		var circle = svg.append("g")
 			  	   .selectAll("circle")
 			  	   .data(dataset)
 			  	   .enter()
 			  	   .append("circle")
 			  	   .attr("class","circle")
+
+			  	  circle
 			  	   .attr("cx",function(d,i) { return x(+d.GERD);})
 			  	   .attr("cy",function(d,i) { return y(+d.growth);})	
 			  	   .attr("r",function(d,i) { return r(Math.sqrt(+d.population));})
