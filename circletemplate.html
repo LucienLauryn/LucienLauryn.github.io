@@ -28,7 +28,7 @@ text {
 	var h = 400;
 	var margin = 50;
 
-	var xdomain = 10;
+	var xdomain = 5;
 	var ydomain = 10;
 
 	svg = d3.select("#chart")
@@ -43,7 +43,7 @@ text {
 					.range([0,w-margin]);
 
 	var y= d3.scale.linear()
-					.domain([0,ydomain])
+					.domain([-ydomain,ydomain])
 					.range([h-margin, 0]);
 
 	var r=d3.scale.linear().domain([0,500]).range([0,20]);
@@ -100,7 +100,7 @@ text {
 			  	   .attr("x",function(d,i) { return x(+d.GERD);})
 			  	   .attr("y",function(d,i) { return y(+d.growth);})
 			  	   .style("fill", "black")
-			  	   .style("font-size", "20px")
+			  	   .style("font-size", "12px")
 	});
 
 </script>
