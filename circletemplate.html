@@ -93,9 +93,9 @@ text {
 			  	   .attr("class","circle")
 
 			  	 circle
-			  	 	.attr("cx",function(d,i) { return x(d.GERD);})
-			  	 	.attr("cy",function(d,i) { return y(d.growth);})	
-			  	 	.attr("r",function(d,i) { return r(Math.sqrt(d.population));})
+			  	 	.attr("cx",function(d,i) { return x(+d.GERD);})
+			  	 	.attr("cy",function(d,i) { return y(+d.growth);})	
+			  	 	.attr("r",function(d,i) { return r(Math.sqrt(+d.population));})
 			  		.style("fill",function(d) { return c(d.continent)})
 	});
 
