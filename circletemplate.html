@@ -90,8 +90,10 @@ text {
 			  	   .attr("cy",function(d,i) { return y(+d.growth);})	
 			  	   .attr("r",function(d,i) { return r(Math.sqrt(+d.population));})
 			  	   .style("fill",function(d) { return c(d.continent)})
-			  	   .append(text)
+			  	   .append("text")
 			  	   .text(function(d) { return d.country})
+			  	   .attr("x",function(d,i) { return x(+d.GERD);})
+			  	   .attr("y",function(d,i) { return y(+d.growth);})
 	});
 
 </script>
