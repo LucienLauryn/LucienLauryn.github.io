@@ -38,21 +38,29 @@ text {
 
 
 	//Scale dimensions
-	var xScale = d3.scale.linear()
+	var x = d3.scale.linear()
 					.domain([0,xdomain])
 					.range([0,w-margin]);
-	var yScale = d3.scale.linear()
+
+	var y= d3.scale.linear()
 					.domain([0,ydomain])
 					.range([h-margin, 0]);
 
+	var r = d3.scale.linear()
+					.domain([0,xdomain])
+					.range([0,ydomain]);
+	var c = d3.scale.category10()
+					.domain([0,xdomain])
+
+
 	//axis dimensions
 	var xAxis = d3.svg.axis()
-					.scale(xScale)
+					.scale(x)
 					.orient("bottom")
 					.ticks(10);
 
 	var yAxis = d3.svg.axis()
-					.scale(yScale)
+					.scale(y)
 					.orient("left")
 					.ticks(10);
 	
@@ -69,7 +77,27 @@ text {
 					.attr("transform","translate(" + (margin/2) + "," + margin/2 + ")")
 					.call(yAxis);
 					
-		
+	d3.csv("data.csv", function(d, error) {
+
+		  var dataset=d3.nest()
+		  .key(function(d) {return d.continent;})
+		  .sortKeys(d3.ascending)
+		  /*.rollup(function(leaves) { return leaves.length; })*/
+		  .entries(d);
+
+		var circle = svg.append("g")
+			  	   .selectAll("circle")
+			  	   .data(d)
+			  	   .enter()
+			  	   .append("circle")
+			  	   .attr("class","circle")
+
+			  	 circle
+			  	 	.attr("cx",function(d,i) { return x(d.GERD);})
+			  	 	.attr("cy",function(d,i) { return y(d.growth);})	
+			  	 	.attr("r",function(d,i) { return r(Math.sqrt(d.population));})
+			  		.style("fill",function(d) { return c(d.continent)})
+	});
 </script>
 </body>
 </html>
