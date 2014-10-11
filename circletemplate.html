@@ -80,14 +80,12 @@ text {
 	d3.csv("data.csv", function(d, error) {
 
 
-		var circle = svg.append("g")
+		svg.append("g")
 			  	   .selectAll("circle")
 			  	   .data(d)
 			  	   .enter()
 			  	   .append("circle")
 			  	   .attr("class","circle")
-
-			  	 circle
 			  	 	.attr("cx",function(d,i) { return x(+d.GERD);})
 			  	 	.attr("cy",function(d,i) { return y(+d.growth);})	
 			  	 	.attr("r",function(d,i) { return r(Math.sqrt(+d.population));})
