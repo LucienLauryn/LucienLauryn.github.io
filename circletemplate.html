@@ -85,7 +85,7 @@ text {
 		  /*.rollup(function(leaves) { return leaves.length; })*/
 		  .entries(d);
 
-		var circle = svg.append("g")
+		var circle = svg
 			  	   .selectAll("circle")
 			  	   .data(d)
 			  	   .enter()
@@ -98,6 +98,7 @@ text {
 			  	 	.attr("r",function(d,i) { return r(Math.sqrt(d.population));})
 			  		.style("fill",function(d) { return c(d.continent)})
 	});
+
 </script>
 </body>
 </html>
