@@ -82,10 +82,10 @@ text {
 		  var dataset=d3.nest()
 		  .key(function(d) {return d.continent;})
 		  .sortKeys(d3.ascending)
-		  /*.rollup(function(leaves) { return leaves.length; })*/
+		  .rollup(function(leaves) { return leaves.length; })
 		  .entries(d);
 
-		var circle = svg
+		var circle = svg.append("g")
 			  	   .selectAll("circle")
 			  	   .data(d)
 			  	   .enter()
