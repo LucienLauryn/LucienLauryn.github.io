@@ -78,12 +78,12 @@ text {
 	d3.csv("data.csv", function(d, error) {
 
 			  var dataset=d3.nest()
-				  .key(function(d) {return d.continent;})
-				  .sortKeys(d3.ascending)
-				  /*.rollup(function(leaves) { return leaves.length; })*/
-				  .entries(d);
+		  .key(function(d) {return d.continent;})
+		  .sortKeys(d3.ascending)
+		  /*.rollup(function(leaves) { return leaves.length; })*/
+		  .entries(d);
 
-				 console.log(dataset)
+		  console.log(dataset)
 				svg.append("g")
 			  	   .selectAll("circle")
 			  	   .data(dataset)
