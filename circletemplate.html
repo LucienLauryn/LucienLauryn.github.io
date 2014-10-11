@@ -76,9 +76,7 @@ text {
 					
 	d3.csv("data.csv", function(d) {
 
-			
-
-		  console.log(d);
+       console.log(d);
 
 		var circle = svg.append("g")
 			  	   .selectAll("circle")
@@ -92,6 +90,8 @@ text {
 			  	   .attr("cy",function(d,i) { return y(+d.growth);})	
 			  	   .attr("r",function(d,i) { return r(Math.sqrt(+d.population));})
 			  	   .style("fill",function(d) { return c(d.continent)})
+			  	   .append(text)
+			  	   .text(function(d) { return d.country})
 	});
 
 </script>
