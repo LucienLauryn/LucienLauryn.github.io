@@ -16,7 +16,7 @@ var path = d3.geo.path().projection(projection);
 
 var color = d3.scale.quantize()
                     .range(["rgb(237,248,233)", "rgb(186,228,179)",
-                     "rgb(116,196,118)", "rgb(49,163,84)","rgb(0,109,44)"]);
+                     "rgb(116,196,118)", "rgb(49,163,84)","rgb(0,109,44)","rgb(0,109,44)"]);
 
 d3.csv("statepopulation.csv", function(data) {
 	color.domain([
@@ -69,10 +69,8 @@ svg.selectAll("path")
                                 //If value is undefined…
                                 return "#ccc";
                         }
-           });
-})
-	
-
+           })
+	  })
 });
 
 
