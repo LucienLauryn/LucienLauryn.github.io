@@ -39,11 +39,14 @@ nav > ul li a {
 	color: grey;
 
 }
+
 nav > ul li a:hover { 
 	background: #F4F4F4;
 	width: 60px;
 }
 .article ul > li a {
+	white-space: pre-wrap;
+	word-wrap: break-word;
 	text-decoration: none;
 	color: black;
 	font-size: 17px;
@@ -65,3 +68,34 @@ h1 {
 table {
 	border: 0;
 }
+
+
+path, line { 
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+	}
+
+text {
+	font-family: perpetua, sans-serif;
+	font-size: 12px;
+	
+		}
+
+
+/*$checkLastForTimer = //looks for a timer in last post by current user
+
+$timer = time();
+
+$nextLimit = $checkLastForTimer['timer'] + 30;
+
+                if($nextLimit < $timer || $nextLimit == 30) {
+
+                    //make post, remember to insert $timer
+                    print 'Posted successfully.';
+
+                } else {
+
+                    print 'Flood detected, post discarded.';
+
+                }*/

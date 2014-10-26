@@ -2,6 +2,11 @@
 var w = 1000;
 var h = 1000;
 
+svg = d3.select("#chart")
+		.append("svg")
+		.attr("width",w)
+		.attr("height",h);
+			
 var projection = d3.geo.albersUsa()
 					.translate([w/2, h/2])
 					.scale([500]) //default scale is 1000
