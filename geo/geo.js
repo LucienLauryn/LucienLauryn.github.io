@@ -63,7 +63,7 @@ svg.selectAll("path")
                         var value = d.properties.value;
                         if (value) {
                                 //If value exists…
-                                return "rgb(0,"+ Math.random()*255+",44)"
+                                return color(value);
                         } else {
                                 //If value is undefined…
                                 return "#ccc";
