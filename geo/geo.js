@@ -15,14 +15,11 @@ var path = d3.geo.path().projection(projection);
 
 
 var color = d3.scale.quantize()
-                    .range(["rgb(186,228,179)",
-                     "rgb(116,196,118)", "rgb(49,163,84)","rgb(0,109,44)","rgb(100,200,44)"]);
+                    .range(["rgb(237,248,233)", "rgb(186,228,179)",
+                     "rgb(116,196,118)", "rgb(49,163,84)","rgb(0,109,44)"]);
 
 d3.csv("statepopulation.csv", function(data) {
-	color.domain([
-                d3.min(data, function(d) { return d.value; }),
-                d3.max(data, function(d) { return d.value; })
-                ]);
+	
 
 
 d3.json("us-states.json", function(json) {
@@ -52,7 +49,10 @@ d3.json("us-states.json", function(json) {
 	            }
 	        }
 	    }
-
+color.domain([
+                d3.min(data, function(d) { return d.value; }),
+                d3.max(data, function(d) { return d.value; })
+                ]);
 svg.selectAll("path")
            .data(json.features)
            .enter()
@@ -61,7 +61,6 @@ svg.selectAll("path")
            .style("fill", function(d) {
                         //Get data value
                         var value = d.properties.value;
-                        console.log(value)
                         if (value) {
                                 //If value exists…
                                 return color(value);
