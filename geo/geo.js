@@ -64,10 +64,7 @@ svg.selectAll("path")
                         if (value) {
                                 //If value exists…
                                 return color(value);
-                        } else {
-                                //If value is undefined…
-                                return "#ccc";
-                        }
+                        } 
            })
 	  })
 });
