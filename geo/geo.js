@@ -61,7 +61,7 @@ d3.json("us-states.json", function(json) {
 	   				return color(value)
 	   			}
 	   			else {
-	   				return #ccc;
+	   				return "#ccc";
 	   			}
 
 
