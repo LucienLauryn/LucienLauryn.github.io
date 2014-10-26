@@ -16,8 +16,7 @@ var path = d3.geo.path().projection(projection);
 
 var color = d3.scale.quantize()
                     .range(["rgb(237,248,233)", "rgb(186,228,179)",
-                     "rgb(116,196,118)", "rgb(49,163,84)","rgb(0,109,44)","rgb(37,248,233)", "rgb(86,228,179)",
-                     "rgb(16,196,11)", "rgb(49,13,84)","rgb(100,109,44)"]);
+                     "rgb(116,196,118)", "rgb(49,163,84)","rgb(0,109,44)"]);
 
 d3.csv("statepopulation.csv", function(data) {
 	color.domain([
@@ -50,10 +49,7 @@ d3.json("us-states.json", function(json) {
 
                 //Stop looking through the JSON
                 break;
-	            }
-	        }
-	    }
-
+	         
 svg.selectAll("path")
            .data(json.features)
            .enter()
@@ -65,7 +61,13 @@ svg.selectAll("path")
                         if (value) {
                                 //If value exists…
                                 return color(value);
-                        } 
+                        } else {
+                                //If value is undefined…
+                                return "#ccc";
+                        }
+                           }
+	        }
+	    }
 
            })
 	  })
