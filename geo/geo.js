@@ -1,10 +1,13 @@
+
+var w = 1000;
+var h = 1000;
+
 var projection = d3.geo.albersUsa()
 					.translate([w/2, h/2])
 					.scale([500]) //default scale is 1000
 
 
 var path = d3.geo.path().projection(projection);
-
 
 
 var color = d3.scale.quantize()
@@ -42,9 +45,10 @@ d3.json("us-states.json", function(json) {
 
                 //Stop looking through the JSON
                 break;
-            }
-        }
-    }
+	            }
+	        }
+	    }
+
 	svg.selectAll("path")
 	   .data(json.features)
 	   .enter()
@@ -52,10 +56,18 @@ d3.json("us-states.json", function(json) {
 	   .attr("d",path)
 	   .style("fill",function(d) { 
 
+	   			var value = d.properties.value;
+	   			if (value) {
+	   				return color(value)
+	   			}
+	   			else {
+	   				return #ccc;
+	   			}
+
 
 	   	})
 
-})
+	})
 
 });
 
