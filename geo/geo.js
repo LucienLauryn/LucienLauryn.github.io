@@ -6,7 +6,7 @@ svg = d3.select("#chart")
 		.append("svg")
 		.attr("width",w)
 		.attr("height",h);
-			
+
 var projection = d3.geo.albersUsa()
 					.scale([500]) //default scale is 1000
 
@@ -58,18 +58,7 @@ d3.json("us-states.json", function(json) {
 	   .enter()
 	   .append("path")
 	   .attr("d",path)
-	   .style("fill",function(d) { 
 
-	   			var value = d.properties.value;
-	   			if (value) {
-	   				return color(value)
-	   			}
-	   			else {
-	   				return "#ccc";
-	   			}
-
-
-	   	})
 
 	})
 
