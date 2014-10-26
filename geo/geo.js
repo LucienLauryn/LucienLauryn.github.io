@@ -8,7 +8,6 @@ svg = d3.select("#chart")
 		.attr("height",h);
 			
 var projection = d3.geo.albersUsa()
-					.translate([w/2, h/2])
 					.scale([500]) //default scale is 1000
 
 
