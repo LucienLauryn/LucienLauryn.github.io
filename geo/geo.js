@@ -53,28 +53,25 @@ d3.json("us-states.json", function(json) {
 	        }
 	    }
 
-	  svg.selectAll("path")
-                   .data(json.features)
-                   .enter()
-                   .append("path")
-                   .attr("d", path)
-                   .style("fill", function(d) {
-                                //Get data value
-                                var value = d.properties.value;
+svg.selectAll("path")
+           .data(json.features)
+           .enter()
+           .append("path")
+           .attr("d", path)
+           .style("fill", function(d) {
+                        //Get data value
+                        var value = d.properties.value;
 
-                                if (value) {
-                                        //If value exists…
-                                        return color(value);
-                                } else {
-                                        //If value is undefined…
-                                        return "#ccc";
-                                }
-                   });
-
-
-	   	})
-
-	})
+                        if (value) {
+                                //If value exists…
+                                return color(value);
+                        } else {
+                                //If value is undefined…
+                                return "#ccc";
+                        }
+           });
+})
+	
 
 });
 
