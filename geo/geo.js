@@ -7,11 +7,11 @@ svg = d3.select("#chart")
 		.attr("width",w)
 		.attr("height",h);
 
-var path = d3.geo.path().projection(projection);
 
 var projection = d3.geo.albersUsa()
 					.scale([750]) //default scale is 1000
 
+var path = d3.geo.path().projection(projection);
 
 
 var color = d3.scale.quantize()
