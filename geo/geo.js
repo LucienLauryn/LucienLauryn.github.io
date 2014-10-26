@@ -8,7 +8,7 @@ svg = d3.select("#chart")
 		.attr("height",h);
 
 var projection = d3.geo.albersUsa()
-					.scale([1000]) //default scale is 1000
+					.scale([750]) //default scale is 1000
 
 
 var path = d3.geo.path().projection(projection);
@@ -61,7 +61,7 @@ svg.selectAll("path")
            .style("fill", function(d) {
                         //Get data value
                         var value = d.properties.value;
-
+                        console.log(value)
                         if (value) {
                                 //If value exists…
                                 return color(value);
