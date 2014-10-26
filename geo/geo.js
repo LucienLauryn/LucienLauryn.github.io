@@ -58,7 +58,17 @@ svg.selectAll("path")
            .enter()
            .append("path")
            .attr("d", path)
-        
+           .style("fill", function(d) {
+                        //Get data value
+                        var value = d.properties.value;
+                        if (value) {
+                                //If value exists…
+                                return "rgb(0,"+ Math.random()*255+",44)"
+                        } else {
+                                //If value is undefined…
+                                return "#ccc";
+                        }
+           })
 	  })
 });
 
